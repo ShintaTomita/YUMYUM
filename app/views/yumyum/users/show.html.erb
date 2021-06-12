@@ -1,0 +1,38 @@
+<div class="account">
+  <div class="form">
+    <div class="form-title">
+      <h2>プロフィール</h2>
+    </div>
+    <%= form_with model:@user, :url => { :action => :show} do |f| %>
+    <div class="form-contents">
+      <div class="contents">
+        <p>プロフィール画像</p>
+        <% if @user.image.blank? %>
+          <%= image_tag "usericon.png" %>
+        <% else %>
+          <%= image_tag @user.image.thumb.url %>
+        <% end %>
+      </div>
+      <div class="contents">
+        <p>お名前</p>
+        <%= @user.name%>
+      </div>
+      <div class="contents">
+        <p>メールアドレス</p>
+        <%= @user.email %>
+      </div>
+      <div class="contents">
+        <p>性別</p>
+        <%= @user.sex %>
+      </div>
+      <div class="contents">
+        <p>年齢</p>
+        <%= @user.age %>
+      </div>
+      <div class="submit">
+        <%= link_to "プロフィール編集", edit_yumyum_user_path %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

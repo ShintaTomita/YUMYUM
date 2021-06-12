@@ -9,9 +9,12 @@ services:
     command: --default-authentication-plugin=mysql_native_password
     volumes:
       - mysql-data:/var/lib/mysql
+      - ./tmp/db:/var/lib/mysql/data
   web:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    stdin_open: true
+    tty: true
     volumes:
       - .:/yumyum
     ports:

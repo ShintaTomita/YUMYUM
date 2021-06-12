@@ -7,10 +7,24 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Kumar+One+Outline&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rock+Salt&display=swap" rel="stylesheet">
+
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "layouts/header" %>
+    <div class="container">
+      <% if flash[:notice] %>
+        <div class="flash">
+          <%= flash[:notice] %>
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

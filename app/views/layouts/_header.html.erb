@@ -1,0 +1,17 @@
+<header>
+  <div class="header-logo">
+    <h3><%= link_to "YUMYUM", yumyum_root_path %></h3>
+  </div>
+  <% if user_signed_in? %>
+    <div class="login-menu">
+      <%= link_to "マイページ", "/yumyum/users/#{current_user.id}" %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    </div>
+  <% else %>
+    <div class="login-menu">
+      <%= link_to "新規登録", new_yumyum_user_path %>
+      <%= link_to "ログイン", new_user_session_path %>
+    </div>
+  <% end %>
+
+</header>

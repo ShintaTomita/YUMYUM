@@ -1,0 +1,31 @@
+<div class="account">
+  <div class="form">
+    <div class="form-title">
+      <h2>アカウント登録</h2>
+    </div>
+    <%= form_with model: @user, :url => {:action => :create } do |f| %>
+    <div class="form-contents">
+      <div class="contents">
+        <p>お名前</p>
+        <%= f.text_field :name, :placeholder => "お名前を入力してください" %>
+      </div>
+      <div class="contents">
+        <p>メールアドレス</p>
+        <%= f.text_field :email, :placeholder => "メールアドレスを入力してください" %>
+      </div>
+      <div class="contents">
+        <p>パスワード(6文字以上)</p>
+        <%= f.text_field :password, :placeholder => "パスワードを入力してください" %>
+      </div>
+      <div class="contents">
+        <p>再パスワード</p>
+        <%= f.text_field :password_confirmation, :placeholder => "パスワードを再入力してください" %>
+      </div>
+      <div class="submit">
+        <%= f.submit "アカウント登録" %>
+        <%= link_to "シェフの方はこちら", "#" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
