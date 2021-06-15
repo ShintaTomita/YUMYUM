@@ -1,7 +1,7 @@
 class Yumyum::UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :edit, :update]
-  before_action :ensure_correct_user, only: [:show, :edit, :update]
-  before_action :forbid_login_user, only: [:new, :create]
+  before_action :authenticate_user!,  only: [:show, :edit, :update, :destroy]
+  before_action :ensure_correct_user, only: [:show, :edit, :update, :destroy]
+  before_action :exist_user?,         only: [:show, :edit, :update, :destory]
 
   def show
     @user = User.find(params[:id])
@@ -15,12 +15,11 @@ class Yumyum::UsersController < ApplicationController
     @user = User.new(params_user)
     if @user.valid?(:step1) && @user.save!
       sign_in @user
-      flash[:notice] = "ようこそ#{current_user.name}さん"
-      flash[:alert] = "まずはプロフィールを完成させてください"
+      flash[:notice] = "ようこそ#{current_user.name}さん まずはプロフィールを完成させてください"
       redirect_to "/yumyum/users/#{current_user.id}/edit"
     else
       flash[:notice] = "メールアドレス、パスワードが間違っています"
-      render "yumyum/users/new"
+      render new_yumyum_user_path
     end
   end
 
@@ -49,7 +48,7 @@ class Yumyum::UsersController < ApplicationController
   def ensure_correct_user
     @user = User.find(params[:id])
     if @user.id != current_user.id
-      flash[:notice] = "権限がありません"
+      flash[:alert] = "権限がありません"
       redirect_to yumyum_root_path
     end
   end

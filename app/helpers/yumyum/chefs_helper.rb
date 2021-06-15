@@ -1,0 +1,2 @@
+module Yumyum::ChefsHelper
+end

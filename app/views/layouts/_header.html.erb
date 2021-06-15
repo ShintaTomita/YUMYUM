@@ -2,10 +2,15 @@
   <div class="header-logo">
     <h3><%= link_to "YUMYUM", yumyum_root_path %></h3>
   </div>
-  <% if user_signed_in? %>
+  <% if user_signed_in? or chef_signed_in? %>
     <div class="login-menu">
-      <%= link_to "マイページ", "/yumyum/users/#{current_user.id}" %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <% if user_signed_in? %>
+        <%= link_to "マイページ", "/yumyum/users/#{current_user.id}" %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "マイページ", "/yumyum/chefs/#{current_chef.id}" %>
+        <%= link_to "ログアウト",destroy_chef_session_path, method: :delete %>
+      <% end %>
     </div>
   <% else %>
     <div class="login-menu">
@@ -13,5 +18,4 @@
       <%= link_to "ログイン", new_user_session_path %>
     </div>
   <% end %>
-
 </header>

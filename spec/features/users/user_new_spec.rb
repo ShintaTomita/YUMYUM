@@ -13,6 +13,7 @@ RSpec.feature "ユーザー新規登録の有効性", type: :feature do
     fill_in "user_password_confirmation", with: "testuser2"
     click_on "アカウント登録"
     expect(current_path).to eq "/yumyum/users/#{User.ids.first}/edit"
+    sign_in User
   end
 
   scenario "パスワードが一致しない場合" do
@@ -23,5 +24,4 @@ RSpec.feature "ユーザー新規登録の有効性", type: :feature do
     click_on "アカウント登録"
     expect(page).to have_content "メールアドレス、パスワードが間違っています"
   end
-
 end

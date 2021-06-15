@@ -6,7 +6,7 @@ a {
   margin: 0;
   padding: 0;
 }
-p,input,a {
+p,input,a, h2{
   font-family: 'Shippori Mincho B1', serif;
 }
 
@@ -105,7 +105,7 @@ footer {
   color: #262e6c;
 }
 .login {
-  padding: 218px 450px;
+  padding: 235px 450px;
 }
 .form {
   background-color: #ffc55c;
@@ -121,7 +121,10 @@ footer {
   font-size: 16px;
   padding: 8px;
 }
-.contents input{
+.contents {
+  width: 100%;
+}
+.contents input  {
   height: 42px;
   width: 75%;
   border-radius: 8px;
@@ -139,6 +142,24 @@ footer {
 .content input {
   margin-left: 4px;
 }
+.contents textarea {
+  height: 240px;
+  width: 75%;
+  border-radius: 8px;
+  border: 2px #262e6c solid;
+  font-size: 16px;
+  padding: 4px;
+  background-color: #FFFFFF;
+}
+.contents a:hover {
+  color: #ffffff;
+}
+.introduce {
+  word-break: break-all;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
 
 .submit {
   margin-top: 16px;
@@ -192,4 +213,47 @@ footer {
   text-align: center;
   margin-bottom: 4px;
   color: #262e6c;
+}
+.top-title h2 {
+  font-size: 62px;
+  color: #ffffff;
+  padding: 16px 40px;
+}
+.chefs-list {
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: baseline;
+  width: 100%;
+}
+.chefs-contents {
+  background-color: #ffc55c;
+  text-align: center;
+  padding: 24px;
+  width: 21%;
+  margin-bottom: 32px;
+}
+.chefs-contents:hover {
+  transition: transform 0.3s linear;
+  transform: scale(1.05);
+  background-color: #ffffff;
+}
+.chef-info {
+  font-size: 20px;
+  display:flex;
+  flex-direction: column;
+  margin-top: 12px;
+  color: #262e6c;
+  text-align: center;
+
+}
+.details {
+  display: flex;
+  justify-content: space-between;
+
+}
+.recipes:hover{
+  transition: transform 0.3s linear;
+  transform: scale(1.05);
 }

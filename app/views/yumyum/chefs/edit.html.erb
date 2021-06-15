@@ -1,0 +1,50 @@
+<div class="account">
+  <div class="form">
+    <div class="form-title">
+      <h2>プロフィール</h2>
+    </div>
+    <%= form_with model: @chef, :url => { :action => :update} do |f| %>
+    <div class="form-contents">
+      <div class="contents">
+        <p>プロフィール画像</p>
+        <%= f.file_field :image %>
+      </div>
+      <div class="contents">
+        <p>お名前</p>
+        <%= f.text_field :name, :placeholder => "お名前を入力してください" %>
+      </div>
+      <div class="contents">
+        <p>メールアドレス</p>
+        <%= f.text_field :email, :placeholder => "メールアドレスを入力してください" %>
+      </div>
+      <div class="contents">
+        <p>店名</p>
+        <%= f.text_field :shop_name, :placeholder => "お店の名前を入力してください" %>
+      </div>
+      <div class="contents">
+        <p>ご住所</p>
+        <%= f.text_field :address, :placeholder => "お店のご住所を入力してください" %>
+      </div>
+      <div class="contents">
+        <p>電話番号</p>
+        <%= f.text_field :shop_tel, :placeholder => "お店の電話番号を入力してください" %>
+      </div>
+      <div class="contents">
+        <p>URL</p>
+        <%= f.text_field :shop_url, :placeholder => "お店のホームページのURLを入力してください" %>
+      </div>
+      <div class="contents">
+        <p>自己紹介</p>
+        <%= f.text_area :introduction, :placeholder => "自己紹介を入力してください" %>
+      </div>
+      <% if current_chef %>
+        <div class="submit">
+          <%= f.submit "プロフィール登録" %>
+          <%= link_to "アカウントを削除する", "/yumyum/chefs/#{@chef.id}", method: :delete %>
+        </div>
+      <% end %>
+
+    </div>
+    <% end %>
+  </div>
+</div>

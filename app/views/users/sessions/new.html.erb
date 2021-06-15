@@ -24,7 +24,9 @@
 
         <div class="submit">
           <%= f.submit "ログイン" %>
+          <%= link_to "シェフ専用ログインページ", new_chef_session_path %>
         </div>
+
       <% end %>
       <%= render "users/shared/links" %>
     </div>

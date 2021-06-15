@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "authenticate,ensure_correct_user,forbid_login_userの有効性について", type: :feature do
+RSpec.feature "before_actionメソッドの有効性について", type: :feature do
   given!(:user) { create(:user) }
   given!(:other_user) { create(:user, id: 101, name: "testotheruser",
                                       email: "testotheruser@example", password: "testotheruser") }
@@ -9,7 +9,7 @@ RSpec.feature "authenticate,ensure_correct_user,forbid_login_userの有効性に
     visit yumyum_root_path
   end
 
-  scenario "ログインしていないユーザーが他ユーザーのページへアクセスした場合"do
+  scenario "ログインしていないユーザーが他ユーザーのページへアクセスした場合" do
     visit "/yumyum/users/#{user.id}"
     expect(current_path).to eq new_user_session_path
    end
@@ -26,5 +26,11 @@ RSpec.feature "authenticate,ensure_correct_user,forbid_login_userの有効性に
     visit new_yumyum_user_path
     expect(page).to have_content "ログインしています"
     expect(current_path).to eq yumyum_root_path
+  end
+
+  scenario "存在しないidのページへアクセスした場合" do
+    visit "/yumyum/chefs/204"
+    expect(page).to have_content "存在しないページです"
+    expect(current_path).to eq new_yumyum_chef_path
   end
 end

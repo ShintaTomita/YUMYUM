@@ -6,7 +6,6 @@
     <%= form_with model:@user, :url => { :action => :show} do |f| %>
     <div class="form-contents">
       <div class="contents">
-        <p>プロフィール画像</p>
         <% if @user.image.blank? %>
           <%= image_tag "usericon.png" %>
         <% else %>

@@ -21,8 +21,8 @@ RSpec.feature "ユーザー情報の編集,削除について", type: :feature d
 
   scenario "アカウント削除をクリックした場合" do
     click_on "アカウントを削除"
-    expect(current_path).to eq yumyum_root_path
     expect(page).to have_content "アカウントを削除しました"
+    expect(current_path).to eq yumyum_root_path
     visit "yumyum/users/#{user.id}"
     expect(current_path).to eq new_user_session_path
   end

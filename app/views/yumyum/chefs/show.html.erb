@@ -1,0 +1,54 @@
+<div class="account">
+  <div class="form">
+    <div class="form-title">
+      <h2>プロフィール</h2>
+    </div>
+    <%= form_with model: @chef, :url => { :action => :show} do |f| %>
+    <div class="form-contents">
+      <div class="contents">
+        <% if @chef.image.blank? %>
+          <%= image_tag "usericon.png" %>
+        <% else %>
+          <%= image_tag @chef.image.thumb.url %>
+        <% end %>
+      </div>
+      <div class="contents">
+        <p>お名前</p>
+        <%= @chef.name%>
+      </div>
+      <div class="contents">
+        <p>メールアドレス</p>
+        <%= @chef.email %>
+      </div>
+      <div class="contents">
+        <p>店名</p>
+        <%= @chef.shop_name %>
+      </div>
+      <div class="contents">
+        <p>ご住所</p>
+        <%= @chef.address %>
+      </div>
+      <div class="contents">
+        <p>電話番号</p>
+        <%= @chef.shop_tel %>
+      </div>
+      <div class="contents">
+        <p>URL</p>
+        <%= link_to "#{@chef.shop_url}", "#" %>
+      </div>
+      <div class="contents">
+        <p>自己紹介</p>
+        <p class="introduce"><%= @chef.introduction %></p>
+      </div>
+      <% if @chef.id == current_chef.id %>
+        <div class="submit">
+          <%= link_to "プロフィール編集", edit_yumyum_chef_path %>
+        </div>
+      <% end %>
+      <div class="submit recipes">
+        <%= link_to "#{@chef.name}さんが提供しているレシピ", "#" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
