@@ -1,0 +1,51 @@
+<div class="account">
+  <div class="form">
+    <div class="form-title">
+      <h2>レシピ登録</h2>
+    </div>
+    <div class="form-contents">
+      <%= form_with model: @recipe, :url => {:action => :update } do |f| %>
+      <div class="contents">
+        <p>料理名</p>
+        <%= f.text_field :name, :placeholder => "料理名を入力してください" %>
+      </div>
+      <div class="contents">
+        <p>材料</p>
+        <%= f.text_area :seasoning, :placeholder => "料理に使用する材料を入力してください" %>
+      </div>
+      <div class="contents">
+        <p>料理イメージ</p>
+        <%= f.file_field :main_image, :placeholder => "完成イメージの画像をアップロードしてください" %>
+      </div>
+      <div class="contents">
+        <p>作り方</p>
+        <%= f.text_area :process, :placeholder => "第2工程を入力してください" %>
+        <%= f.file_field :images, :placeholder => "第2工程の画像をアップロードしてください" %>
+      </div>
+      <div class="contents">
+        <p>第２工程</p>
+        <%= f.text_area :process, :placeholder => "第2工程を入力してください" %>
+        <%= f.file_field :images, :placeholder => "第2工程の画像をアップロードしてください" %>
+      </div>
+      <div class="contents">
+        <p>第３工程</p>
+        <%= f.text_area :process, :placeholder => "第3工程を入力してください" %>
+        <%= f.file_field :images, :placeholder => "第3工程の画像をアップロードしてください" %>
+      </div>
+      <div class="contents">
+        <p>第４工程</p>
+        <%= f.text_area :process, :placeholder => "第4工程を入力してください" %>
+        <%= f.file_field :images, :placeholder => "第4工程の画像をアップロードしてください" %>
+      </div>
+      <div class="contents">
+        <p>アドバイス</p>
+        <%= f.text_area :advise, :placeholder => "作る上でのアドバイスを入力してください" %>
+      </div>
+      <div class="submit">
+        <%= f.submit "レシピ登録" %>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

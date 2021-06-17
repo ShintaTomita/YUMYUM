@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resources :top,   only: [:index]
     resources :users, except: [:index]
     resources :chefs
+    resources :recipes
   end
 
 end
