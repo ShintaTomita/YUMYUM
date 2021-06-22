@@ -1,25 +1,28 @@
-example_id                                      | status  | run_time        |
------------------------------------------------ | ------- | --------------- |
-./spec/features/chefs/chef_edit_spec.rb[1:1]    | passed  | 0.17011 seconds |
-./spec/features/chefs/chef_edit_spec.rb[1:2]    | passed  | 0.07102 seconds |
-./spec/features/chefs/chef_edit_spec.rb[1:3]    | passed  | 0.23793 seconds |
-./spec/features/chefs/chef_edit_spec.rb[1:4]    | passed  | 0.19401 seconds |
-./spec/features/chefs/chef_spec.rb[1:1]         | passed  | 0.19001 seconds |
-./spec/features/chefs/chef_spec.rb[1:2]         | passed  | 0.16927 seconds |
-./spec/features/chefs/chefs_new_spec.rb[1:1]    | passed  | 0.12398 seconds |
-./spec/features/chefs/chefs_new_spec.rb[1:2]    | passed  | 0.09737 seconds |
-./spec/features/top/top_spec.rb[1:1]            | passed  | 0.05638 seconds |
-./spec/features/top/top_spec.rb[1:2:1]          | passed  | 0.18613 seconds |
-./spec/features/top/top_spec.rb[1:2:2]          | passed  | 0.22271 seconds |
-./spec/features/users/user_edit_spec.rb[1:1]    | passed  | 0.24218 seconds |
-./spec/features/users/user_edit_spec.rb[1:2]    | passed  | 0.20538 seconds |
-./spec/features/users/user_new_spec.rb[1:1]     | passed  | 0.13309 seconds |
-./spec/features/users/user_new_spec.rb[1:2]     | passed  | 0.10273 seconds |
-./spec/features/users/user_spec.rb[1:1]         | passed  | 5.63 seconds    |
-./spec/features/users/user_spec.rb[1:2]         | passed  | 0.16587 seconds |
-./spec/features/users/user_spec.rb[1:3]         | passed  | 0.16325 seconds |
-./spec/features/users/user_spec.rb[1:4]         | passed  | 0.16975 seconds |
-./spec/helpers/yumyum/chefs_helper_spec.rb[1:1] | pending | 0.00001 seconds |
-./spec/models/chef_spec.rb[1:1]                 | pending | 0.00001 seconds |
-./spec/requests/yumyum/chefs_spec.rb[1:1:1]     | passed  | 0.21412 seconds |
-./spec/requests/yumyum/top_spec.rb[1:1:1]       | passed  | 0.06007 seconds |
+example_id                                        | status  | run_time        |
+------------------------------------------------- | ------- | --------------- |
+./spec/features/chefs/chef_edit_spec.rb[1:1]      | passed  | 0.14555 seconds |
+./spec/features/chefs/chef_edit_spec.rb[1:2]      | passed  | 0.06771 seconds |
+./spec/features/chefs/chef_edit_spec.rb[1:3]      | passed  | 0.21117 seconds |
+./spec/features/chefs/chef_edit_spec.rb[1:4]      | passed  | 0.19169 seconds |
+./spec/features/chefs/chef_spec.rb[1:1]           | passed  | 0.14281 seconds |
+./spec/features/chefs/chef_spec.rb[1:2]           | passed  | 0.151 seconds   |
+./spec/features/chefs/chefs_new_spec.rb[1:1]      | passed  | 0.12226 seconds |
+./spec/features/chefs/chefs_new_spec.rb[1:2]      | passed  | 0.11311 seconds |
+./spec/features/top/top_spec.rb[1:1]              | passed  | 0.06235 seconds |
+./spec/features/top/top_spec.rb[1:2:1]            | passed  | 0.16497 seconds |
+./spec/features/top/top_spec.rb[1:2:2]            | passed  | 0.17102 seconds |
+./spec/features/users/user_edit_spec.rb[1:1]      | passed  | 0.22882 seconds |
+./spec/features/users/user_edit_spec.rb[1:2]      | passed  | 1.75 seconds    |
+./spec/features/users/user_new_spec.rb[1:1]       | passed  | 0.11817 seconds |
+./spec/features/users/user_new_spec.rb[1:2]       | passed  | 0.09608 seconds |
+./spec/features/users/user_spec.rb[1:1]           | passed  | 0.1228 seconds  |
+./spec/features/users/user_spec.rb[1:2]           | passed  | 0.15986 seconds |
+./spec/features/users/user_spec.rb[1:3]           | passed  | 0.15522 seconds |
+./spec/features/users/user_spec.rb[1:4]           | passed  | 0.1408 seconds  |
+./spec/helpers/yumyum/chefs_helper_spec.rb[1:1]   | pending | 0.00001 seconds |
+./spec/helpers/yumyum/recipes_helper_spec.rb[1:1] | pending | 0.00001 seconds |
+./spec/models/chef_spec.rb[1:1]                   | pending | 0.00001 seconds |
+./spec/models/recipe_spec.rb[1:1]                 | pending | 0.00003 seconds |
+./spec/requests/yumyum/chefs_spec.rb[1:1:1]       | passed  | 0.20891 seconds |
+./spec/requests/yumyum/recipes_spec.rb[1:1:1]     | pending | 0.00001 seconds |
+./spec/requests/yumyum/top_spec.rb[1:1:1]         | passed  | 0.05926 seconds |

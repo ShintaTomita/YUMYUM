@@ -9,4 +9,6 @@ class Chef < ApplicationRecord
     validates :password, confirmation: true
     validates :password_confirmation, presence: true
   end
+
+  has_many :recipes
 end

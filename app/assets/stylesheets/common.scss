@@ -9,7 +9,10 @@ a {
 p,input,a, h2{
   font-family: 'Shippori Mincho B1', serif;
 }
-
+img  {
+  padding: 0;
+  margin: 0;
+}
 header {
   width: 100%;
   background-color: #ffffc3;
@@ -29,6 +32,16 @@ header a:hover {
   font-family: 'Rock Salt', cursive;
   font-size: 30px;
   color: #262e6c;
+}
+.product-search {
+  width: 24%;
+}
+.product-search input {
+  width: 100%;
+  height: 40px;
+  color: #262e6c;
+  border-radius: 8px;
+  margin-bottom: 16px;
 }
 .top {
   background-image: image-url('top.jpg');
@@ -185,7 +198,7 @@ footer {
   font-size: 16px;
   color: #262e6c;
 }
-.submit a:hover {
+.submit a:hover, .details-page a:hover {
   color: #ffffff;
 }
 .flash {
@@ -226,6 +239,7 @@ footer {
   justify-content: space-around;
   align-items: baseline;
   width: 100%;
+
 }
 .chefs-contents {
   background-color: #ffc55c;
@@ -233,11 +247,16 @@ footer {
   padding: 24px;
   width: 21%;
   margin-bottom: 32px;
+  border-radius: 8px;
 }
 .chefs-contents:hover {
   transition: transform 0.3s linear;
   transform: scale(1.05);
   background-color: #ffffff;
+}
+.chef-logo img{
+  width: 128px;
+  height: 128px;
 }
 .chef-info {
   font-size: 20px;
@@ -256,4 +275,44 @@ footer {
 .recipes:hover{
   transition: transform 0.3s linear;
   transform: scale(1.05);
+}
+.recipe-logo {
+  width: 128px;
+  height: 128px;
+}
+.recipe-detail {
+  padding: 180px 250px;
+}
+.recipe-form {
+  width: 100%;
+  padding: 16px;
+}
+.recipe-contents p {
+  font-size: 20px;
+}
+.recipe-form img{
+  width: 750px;
+  height: 560px;
+}
+.details-page {
+  display: flex;
+  justify-content: center;
+}
+.cooking {
+  padding: 24px;
+}
+.recipe-content {
+  word-break:keep-all;
+}
+.cook-contents {
+  word-break: break-all;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cook-contents p{
+  margin-right: 20px;
+}
+.advise {
+  word-break: keep-all;
 }
