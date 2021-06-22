@@ -1,0 +1,54 @@
+<div class="account recipe-detail">
+  <div class="form cooking">
+    <div class="form-title">
+      <h2><%= @recipe.name %></h2>
+      <%= image_tag @recipe.main_image.url %>
+    </div>
+    <div class="form-contents">
+        <div class="contents recipe-content">
+          <p>材料</p>
+          <%= @recipe.food_stuff %>
+        </div>
+        <div class="contents">
+          <p>作り方</p>
+          <div class="cook-contents">
+            <p><%= @recipe.first_process %></p>
+            <%= link_to @recipe.first_image.url, "data_lightbox": @recipe.first_image do %>
+              <%= image_tag @recipe.first_image.thumb.url %>
+            <% end %>
+          </div>
+        </div>
+        <div class="contents">
+          <p>第２工程</p>
+          <div class="cook-contents">
+            <p><%= @recipe.second_process %></p>
+            <%= link_to @recipe.second_image.url, "data_lightbox": @recipe.second_image do %>
+              <%= image_tag @recipe.second_image.thumb.url %>
+            <% end %>
+          </div>
+        </div>
+        <div class="contents">
+          <p>第３工程</p>
+          <div class="cook-contents">
+            <p><%= @recipe.third_process %></p>
+            <%= link_to @recipe.third_image.url, "data_lightbox": @recipe.third_image do %>
+              <%= image_tag @recipe.third_image.thumb.url %>
+            <% end %>
+          </div>
+        </div>
+        <div class="contents">
+          <p>第４工程</p>
+          <div class="cook-contents">
+            <p><%= @recipe.fourth_process %></p>
+            <%= link_to @recipe.fourth_image.url, "data_lightbox": @recipe.fourth_image do %>
+              <%= image_tag @recipe.fourth_image.thumb.url %>
+            <% end %>
+          </div>
+        </div>
+        <div class="contents">
+          <p class="advise">アドバイス</p>
+          <%= @recipe.advise %>
+        </div>
+    </div>
+  </div>
+</div>

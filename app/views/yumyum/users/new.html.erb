@@ -3,7 +3,7 @@
     <div class="form-title">
       <h2>アカウント登録</h2>
     </div>
-    <%= form_with model: @user, :url => {:action => :create } do |f| %>
+    <%= form_with model: @user, url: yumyum_users_path do |f| %>
     <div class="form-contents">
       <div class="contents">
         <p>お名前</p>

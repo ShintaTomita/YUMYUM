@@ -1,0 +1,29 @@
+<div class="account recipe-detail">
+  <div class="form recipe-form">
+    <div class="form-title">
+      <h2><%= @recipe.name %></h2>
+      <%= link_to @recipe.main_image.url, "data_lightbox": @recipe.main_image do %>
+        <%= image_tag @recipe.main_image.url, class:"img" %>
+      <% end %>
+    </div>
+    <div class="form-contents recipe-contents">
+      <div class="chef-info">
+        <div class="details details-page">
+          <p class="hoge">料理名：</p>
+          <p><%= @recipe.name %></p>
+        </div>
+        <div class="details details-page">
+          <p class="hoge">シェフ：</p>
+          <p><%= link_to @chef.name, "/yumyum/chefs/#{@chef.id}" %></p>
+        </div>
+        <div class="details details-page">
+          <p class="hoge">価格：</p>
+          <p>￥500</p>
+        </div>
+        <div class="contents">
+          <p>このレシピを購入する</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

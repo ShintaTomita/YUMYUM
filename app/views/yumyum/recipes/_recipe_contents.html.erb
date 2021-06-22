@@ -1,11 +1,12 @@
-<%= form_with model: recipe, :url => {:action => :create } do |f| %>
+<%= form_with model: recipe, url: yumyum_recipes_path do |f| %>
+<%= f.hidden_field :chef_id, value: current_chef.id %>
 <div class="contents">
   <p>料理名</p>
   <%= f.text_field :name, :placeholder => "料理名を入力してください" %>
 </div>
 <div class="contents">
   <p>材料</p>
-  <%= f.text_area :seasoning, :placeholder => "料理に使用する材料を入力してください" %>
+  <%= f.text_area :food_stuff, :placeholder => "料理に使用する材料を入力してください" %>
 </div>
 <div class="contents">
   <p>料理イメージ</p>
@@ -13,23 +14,23 @@
 </div>
 <div class="contents">
   <p>作り方</p>
-  <%= f.text_area :process, :placeholder => "第2工程を入力してください" %>
-  <%= f.file_field :images, :placeholder => "第2工程の画像をアップロードしてください" %>
+  <%= f.text_area  :first_proces, :placeholder => "第1工程を入力してください" %>
+  <%= f.file_field :first_image,  :placeholder => "第1工程の画像をアップロードしてください" %>
 </div>
 <div class="contents">
   <p>第２工程</p>
-  <%= f.text_area :process, :placeholder => "第2工程を入力してください" %>
-  <%= f.file_field :images, :placeholder => "第2工程の画像をアップロードしてください" %>
+  <%= f.text_area  :second_process, :placeholder => "第2工程を入力してください" %>
+  <%= f.file_field :second_image,   :placeholder => "第2工程の画像をアップロードしてください" %>
 </div>
 <div class="contents">
   <p>第３工程</p>
-  <%= f.text_area :process, :placeholder => "第3工程を入力してください" %>
-  <%= f.file_field :images, :placeholder => "第3工程の画像をアップロードしてください" %>
+  <%= f.text_area  :third_process, :placeholder => "第3工程を入力してください" %>
+  <%= f.file_field :third_image,   :placeholder => "第3工程の画像をアップロードしてください" %>
 </div>
 <div class="contents">
   <p>第４工程</p>
-  <%= f.text_area :process, :placeholder => "第4工程を入力してください" %>
-  <%= f.file_field :images, :placeholder => "第4工程の画像をアップロードしてください" %>
+  <%= f.text_area  :fourth_process, :placeholder => "第4工程を入力してください" %>
+  <%= f.file_field :fourth_image,   :placeholder => "第4工程の画像をアップロードしてください" %>
 </div>
 <div class="contents">
   <p>アドバイス</p>

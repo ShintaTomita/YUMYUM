@@ -1,0 +1,7 @@
+<div class="contents">
+  <% if chef.image.blank? %>
+    <%= image_tag "usericon.png" %>
+  <% else %>
+    <%= image_tag chef.image.thumb.url %>
+  <% end %>
+</div>

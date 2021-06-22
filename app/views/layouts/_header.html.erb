@@ -2,6 +2,19 @@
   <div class="header-logo">
     <h3><%= link_to "YUMYUM", yumyum_root_path %></h3>
   </div>
+  <div class="product-search">
+    <%= form_with url:yumyum_search_path, method: :get, local: true do |f|%>
+      <%= f.text_field :address, placeholder: "料理名や食材を入力してください" %>
+      <% f.submit 'Search', :name => "" %>
+    <% end %>
+  </div>
+  <div class="genle">
+    <%= link_to "レシピ一覧", yumyum_recipes_path %>
+    <% if chef_signed_in? %>
+      <%= link_to "レシピを登録する", new_yumyum_recipe_path %>
+    <% end %>
+
+  </div>
   <% if user_signed_in? or chef_signed_in? %>
     <div class="login-menu">
       <% if user_signed_in? %>

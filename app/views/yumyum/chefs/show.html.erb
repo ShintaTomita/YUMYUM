@@ -9,7 +9,9 @@
         <% if @chef.image.blank? %>
           <%= image_tag "usericon.png" %>
         <% else %>
-          <%= image_tag @chef.image.thumb.url %>
+          <%= link_to @chef.image.url, "data_lightbox": @chef.image do %>
+            <%= image_tag @chef.image.thumb.url %>
+          <% end %>
         <% end %>
       </div>
       <div class="contents">
@@ -40,13 +42,13 @@
         <p>自己紹介</p>
         <p class="introduce"><%= @chef.introduction %></p>
       </div>
-      <% if @chef.id == current_chef.id %>
+      <% if chef_signed_in? %>
         <div class="submit">
           <%= link_to "プロフィール編集", edit_yumyum_chef_path %>
         </div>
       <% end %>
       <div class="submit recipes">
-        <%= link_to "#{@chef.name}さんが提供しているレシピ", "#" %>
+        <%= link_to "#{@chef.name}さんが提供しているレシピ", "/yumyum/chef_recipes/#{@chef.id}", chef_id: @chef.id %>
       </div>
     </div>
     <% end %>
