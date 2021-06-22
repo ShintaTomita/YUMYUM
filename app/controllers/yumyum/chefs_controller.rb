@@ -1,7 +1,8 @@
 class Yumyum::ChefsController < ApplicationController
   before_action :authenticate_chef!,  only: [:edit, :update, :destroy]
   before_action :ensure_correct_chef, only: [:edit, :update, :destroy]
-  before_action :exist_chef?, only:[:show, :update, :destory]
+  before_action :exist_chef?,         only: [:show, :edit, :update, :destroy]
+  before_action :forbid_login_user,   only: [:new, :create]
 
   def index
     @chefs = Chef.all
@@ -49,6 +50,11 @@ class Yumyum::ChefsController < ApplicationController
     end
   end
 
+  def chef_recipes
+    @chef = Chef.find(params[:id])
+    @recipes = @chef.recipes
+  end
+
   def ensure_correct_chef
     @chef = Chef.find(params[:id])
     if @chef.id != current_chef.id
@@ -57,7 +63,7 @@ class Yumyum::ChefsController < ApplicationController
     end
   end
 
-  
+
 
   private
 

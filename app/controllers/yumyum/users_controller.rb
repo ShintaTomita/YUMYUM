@@ -1,8 +1,7 @@
 class Yumyum::UsersController < ApplicationController
   before_action :authenticate_user!,  only: [:show, :edit, :update, :destroy]
   before_action :ensure_correct_user, only: [:show, :edit, :update, :destroy]
-  before_action :exist_user?,         only: [:show, :edit, :update, :destory]
-
+  before_action :forbid_login_user,   only: [:new, :create]
   def show
     @user = User.find(params[:id])
   end
