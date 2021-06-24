@@ -1,0 +1,28 @@
+<div class="account">
+  <div class="form">
+    <div class="form-title">
+      <h2>クレジットカード情報</h2>
+    </div>
+    <div class="form-contents">
+      <div class="contents">
+        <p>カード番号</p>
+        <p>**** **** **** <%= @card.last4%></p>
+      </div>
+      <div class="contents">
+        <p>カード名義人</p>
+        <p><%= @card.name %></p>
+      </div>
+      <div class="contents">
+        <p>有効期限</p>
+        <p><%= @card.exp_month %> / <%= @card.exp_year %></p>
+      </div>
+      <div class="contents">
+        <p>ブランド</p>
+        <p><%= @card.brand%></p>
+      </div>
+      <div class="submit">
+        
+      </div>
+    </div>
+  </div>
+</div>

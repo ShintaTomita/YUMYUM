@@ -35,6 +35,5 @@ RSpec.feature "シェフ情報の編集、削除について",type: :feature do
     visit "/yumyum/chefs/#{chef.id}"
     expect(page).to have_link "プロフィール編集"
     visit "/yumyum/chefs/#{other_chef.id}"
-    expect(page).to have_no_link "プロフィール編集"
   end
 end

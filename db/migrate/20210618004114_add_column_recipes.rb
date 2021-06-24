@@ -9,6 +9,8 @@ class AddColumnRecipes < ActiveRecord::Migration[6.1]
     add_column    :recipes,    :third_image,    :string
     add_column    :recipes,    :fourth_image,   :string
     add_column    :recipes,    :food_stuff,     :string
+    add_column    :recipes,    :genre,          :string
+    add_column    :recipes,    :price,          :integer
     remove_column :recipes,    :process,        :string
     remove_column :recipes,    :images,         :string
     remove_column :recipes,    :seasoning,      :string

@@ -52,6 +52,19 @@ class Yumyum::UsersController < ApplicationController
     end
   end
 
+  def card
+    @user = User.find(params[:id])
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    card = Card.find_by(user_id: current_user.id)
+    if card.present?
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @card = customer.cards.first
+    else
+      flash[:notice] = "クレジットカードを登録してください"
+      redirect_to new_yumyum_card_path
+    end
+  end
+
   private
   def params_user
     params.require(:user).permit(:name, :email, :password, :password_confirmation)

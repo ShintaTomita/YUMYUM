@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  namespace :yumyum do
+    get 'cards/new'
+  end
+  get 'cards/new'
   devise_for :chefs, :controllers => {
     :sessions =>           "chefs/sessions"
   }
@@ -22,10 +26,15 @@ Rails.application.routes.draw do
     get "search",          :to => "recipes#search"
     resources :top,        only: [:index]
     resources :users,      except: [:index]
+    get "users/card/:id",      :to => "users#card"
     resources :chefs
     get "chef_recipes/:id", :to => "chefs#chef_recipes"
-    resources :recipes
+    resources :recipes do
+      resources :orders,     only: [:create]
+    end
     get "recipes/detail/:id",  :to => "recipes#detail"
+    resources  :products
+    resources  :cards,     only: [:new, :create]
   end
 
 end
