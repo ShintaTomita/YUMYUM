@@ -291,12 +291,15 @@ footer {
   font-size: 20px;
 }
 .recipe-form img{
-  width: 750px;
-  height: 560px;
+  width: 700px;
+  height: 510px;
 }
 .details-page {
   display: flex;
   justify-content: center;
+}
+.details-page p {
+  word-break: keep-all;
 }
 .cooking {
   padding: 24px;

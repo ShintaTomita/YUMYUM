@@ -10,7 +10,8 @@ import "channels"
 import 'jquery'
 import './recipes/change_price.js'
 import './card/card.js'
-
+import './card/purchase.js'
+import './users/user_destroy.js'
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
