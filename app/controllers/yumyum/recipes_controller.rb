@@ -1,5 +1,7 @@
 class Yumyum::RecipesController < ApplicationController
   before_action :authenticate_chef!,    only: [:edit, :update, :destroy]
+  before_action :authenticate_user!,    only: [:show]
+  before_action :create_only_chef,      only: [:new, :create, :update, :destroy]
   before_action :ensure_correct_recipe, only: [:edit, :update, :destroy]
   before_action :exist_recipe?,         only: [:show, :edit, :update, :destroy]
 
@@ -8,13 +10,30 @@ class Yumyum::RecipesController < ApplicationController
   end
 
   def detail
-    @recipe = Recipe.find(params[:id])
-    @chef = @recipe.chef
+    if user_signed_in?
+      @recipe = Recipe.find(params[:id])
+      @chef = @recipe.chef
+      @order = Order.where(user_id: current_user.id, recipe_id: @recipe.id).first
+    else
+      flash[:alert] = "新規登録、ログインをしてください"
+      render new_yumyum_user_path
+    end
+
   end
 
   def show
     @recipe = Recipe.find(params[:id])
-    @chef = @recipe.chef
+    order = Order.where(user_id: current_user.id, recipe_id: @recipe.id).first
+    if order.present?
+      if @recipe.id == order.recipe_id
+        return true
+      end
+    else
+      flash[:notice] = "レシピを購入してください"
+      redirect_to "/yumyum//recipes/detail/#{@recipe.id}"
+    end
+
+
   end
 
   def new
@@ -60,6 +79,12 @@ class Yumyum::RecipesController < ApplicationController
       flash[:notice] = "権限がありません"
     redirect_to yumyum_recipes_path
     end
+  end
+
+  def create_only_chef
+    user_signed_in?
+    flash[:notice] = "このページはシェフ専用のページです"
+    redirect_to yumyum_root_path
   end
 
   def search

@@ -1,7 +1,9 @@
 class Yumyum::UsersController < ApplicationController
-  before_action :authenticate_user!,  only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!,  only: [:index, :show, :edit, :update, :destroy]
+  before_action :exist_user?,         only: [:show, :edit, :update, :destroy]
   before_action :ensure_correct_user, only: [:show, :edit, :update, :destroy]
   before_action :forbid_login_user,   only: [:new, :create]
+
   def show
     @user = User.find(params[:id])
   end
@@ -63,6 +65,11 @@ class Yumyum::UsersController < ApplicationController
       flash[:notice] = "クレジットカードを登録してください"
       redirect_to new_yumyum_card_path
     end
+  end
+
+  def purchase_recipes
+    @user = User.find(params[:id])
+    @orders = Order.where(user_id: current_user.id)
   end
 
   private
