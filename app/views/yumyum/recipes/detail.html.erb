@@ -17,13 +17,25 @@
           <p><%= link_to @chef.name, "/yumyum/chefs/#{@chef.id}" %></p>
         </div>
         <div class="details details-page">
+          <p class="hoge">材料：</p>
+          <p><%= @recipe.food_stuff %></p>
+        </div>
+        <div class="details details-page">
           <p class="hoge">価格：</p>
           <p>￥500</p>
         </div>
         <div class="contents">
-          <p><%= link_to "このレシピを購入する", yumyum_recipe_orders_path(@recipe.id), recipe_id: @recipe.id, method: :post %></p>
+          <% if @order.present? %>
+            <% if @recipe.id == @order.recipe_id %>
+              <p><%= link_to "このレシピはこちら", yumyum_recipe_path(@recipe.id) %></p>
+            <% end %>
+          <% else %>
+            <p><%= link_to "このレシピを購入する", yumyum_recipe_orders_path(@recipe.id), recipe_id: @recipe.id, method: :post, id: "purchase" %></p>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
+<%= link_to "このレシピを購入する", yumyum_recipe_orders_path(@recipe.id), recipe_id: @recipe.id, method: :post, id: "purchase" %>
+<%= javascript_pack_tag "card/purchase.js" %>

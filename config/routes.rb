@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :top,        only: [:index]
     resources :users,      except: [:index]
     get "users/card/:id",      :to => "users#card"
+    get "users/purchase_recipes/:id",   :to => "users#purchase_recipes"
     resources :chefs
     get "chef_recipes/:id", :to => "chefs#chef_recipes"
     resources :recipes do

@@ -28,10 +28,11 @@
       <% if @user.id == current_user.id %>
         <div class="submit">
           <%= f.submit "プロフィール登録" %>
-          <%= link_to "アカウントを削除する", "/yumyum/users/#{current_user.id}", method: :delete %>
+          <%= link_to "アカウントを削除する", "/yumyum/users/#{current_user.id}", method: :delete, id:"destroy" %>
         </div>
       <% end %>
     </div>
     <% end %>
   </div>
 </div>
+<%= javascript_pack_tag "users/user_destroy.js" %>
