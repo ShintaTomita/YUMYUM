@@ -37,7 +37,7 @@ class Yumyum::RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
-    if @recipe.update!(params_recipe)
+    if @recipe.update(params_recipe)
       flash[:notice] = "レシピを更新しました"
       redirect_to "/yumyum/recipes/#{@recipe.id}"
     else
@@ -69,6 +69,6 @@ class Yumyum::RecipesController < ApplicationController
   private
   def params_recipe
     params.require(:recipe).permit(:name, :food_stuff, :main_image, :first_process, :second_process, :third_process, :fourth_process,
-                                   :first_image, :second_image, :third_image, :fourth_image, :advise, :chef_id)
+                                   :first_image, :second_image, :third_image, :fourth_image, :advise, :chef_id, :genre, :prouct_id, :price)
   end
 end
