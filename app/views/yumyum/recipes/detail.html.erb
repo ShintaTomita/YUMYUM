@@ -21,7 +21,7 @@
           <p>￥500</p>
         </div>
         <div class="contents">
-          <p>このレシピを購入する</p>
+          <%= link_to "このレシピを購入する", yumyum_recipe_orders_path(@recipe.id), method: :post %>
         </div>
       </div>
     </div>

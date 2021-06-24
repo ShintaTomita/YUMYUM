@@ -4,6 +4,14 @@
   <p>料理名</p>
   <%= f.text_field :name, :placeholder => "料理名を入力してください" %>
 </div>
+<div class="content">
+  <p>ジャンル</p>
+  <%= f.radio_button :genre, "主食" %><span>主食</span>
+  <%= f.radio_button :genre, "副食" %><span>副食</span>
+  <%= f.radio_button :genre, "スープ" %><span>スープ</span>
+  <%= f.radio_button :genre, "ドレッシング・ソース" %><span>トレッシング・ソース</span>
+  <%= f.radio_button :genre, "デザート" %><span>デザート</span>
+</div>
 <div class="contents">
   <p>材料</p>
   <%= f.text_area :food_stuff, :placeholder => "料理に使用する材料を入力してください" %>
@@ -14,7 +22,7 @@
 </div>
 <div class="contents">
   <p>作り方</p>
-  <%= f.text_area  :first_proces, :placeholder => "第1工程を入力してください" %>
+  <%= f.text_area  :first_process, :placeholder => "第1工程を入力してください" %>
   <%= f.file_field :first_image,  :placeholder => "第1工程の画像をアップロードしてください" %>
 </div>
 <div class="contents">
@@ -36,6 +44,8 @@
   <p>アドバイス</p>
   <%= f.text_area :advise, :placeholder => "作る上でのアドバイスを入力してください" %>
 </div>
+<%= f.hidden_field :price, id:'price' %>
+
 <div class="submit">
   <%= f.submit "レシピ登録" %>
 </div>

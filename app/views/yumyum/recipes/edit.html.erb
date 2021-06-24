@@ -9,6 +9,14 @@
         <p>料理名</p>
         <%= f.text_field :name, :placeholder => "料理名を入力してください" %>
       </div>
+      <div class="content">
+        <p>ジャンル</p>
+        <%= f.radio_button :genre, "主食" %><span>主食</span>
+        <%= f.radio_button :genre, "副食" %><span>副食</span>
+        <%= f.radio_button :genre, "スープ" %><span>スープ</span>
+        <%= f.radio_button :genre, "ドレッシング・ソース" %><span>ドレッシング・ソース</span>
+        <%= f.radio_button :genre, "デザート" %><span>デザート</span>
+      </div>
       <div class="contents">
         <p>材料</p>
         <%= f.text_area :food_stuff, :placeholder => "料理に使用する材料を入力してください" %>
@@ -42,6 +50,7 @@
         <p>アドバイス</p>
         <%= f.text_area :advise, :placeholder => "作る上でのアドバイスを入力してください" %>
       </div>
+      <%= f.hidden_field :price, id:'price' %>
       <div class="submit">
         <%= f.submit "レシピ登録" %>
         <%= link_to "レシピを削除する", "/yumyum/recipes/#{@recipe.id}", method: :delete %>
@@ -50,3 +59,4 @@
     </div>
   </div>
 </div>
+<%= javascript_pack_tag "recipes/change_price.js" %>

@@ -8,7 +8,7 @@
         <%= link_to "/yumyum/recipes/detail/#{recipe.id}" do %>
         <div class="chef-logo">
           <% if recipe.main_image? %>
-              <%= image_tag recipe.main_image.thumb.url, class: "recipe-logo" %>
+            <%= image_tag recipe.main_image.thumb.url, class: "recipe-logo" %>
           <% else %>
             <%= image_tag "usericon.png" %>
           <% end %>
@@ -19,12 +19,12 @@
             <p><%= recipe.name %></p>
           </div>
           <div class="details">
-            <p class="hoge">シェフ：</p>
-            <p></p>
+            <p class="hoge">ジャンル：</p>
+            <p><#%= recipe.genre</p>
           </div>
           <div class="details">
             <p class="hoge">価格：</p>
-            <p>￥500</p>
+            <p><#%= recipe.price</p>
           </div>
         </div>
         <% end %>
