@@ -6,4 +6,5 @@ class Recipe < ApplicationRecord
   mount_uploader :fourth_image, ImageUploader
 
   belongs_to :chef
+  has_one    :order, dependent: :destroy
 end

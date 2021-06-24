@@ -1,0 +1,2 @@
+module Yumyum::ProductsHelper
+end
