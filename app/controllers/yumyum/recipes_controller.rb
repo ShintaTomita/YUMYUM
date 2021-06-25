@@ -1,6 +1,5 @@
 class Yumyum::RecipesController < ApplicationController
   before_action :authenticate_chef!,    only: [:edit, :update, :destroy]
-  before_action :authenticate_user!,    only: [:show]
   before_action :create_only_chef,      only: [:new, :create, :update, :destroy]
   before_action :ensure_correct_recipe, only: [:edit, :update, :destroy]
   before_action :exist_recipe?,         only: [:show, :edit, :update, :destroy]
@@ -10,10 +9,12 @@ class Yumyum::RecipesController < ApplicationController
   end
 
   def detail
-    if user_signed_in?
+    if user_signed_in? or chef_signed_in?
       @recipe = Recipe.find(params[:id])
       @chef = @recipe.chef
-      @order = Order.where(user_id: current_user.id, recipe_id: @recipe.id).first
+      if user_signed_in?
+        @order = Order.where(user_id: current_user.id, recipe_id: @recipe.id).first
+      end
     else
       flash[:alert] = "新規登録、ログインをしてください"
       render new_yumyum_user_path
@@ -23,17 +24,22 @@ class Yumyum::RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
-    order = Order.where(user_id: current_user.id, recipe_id: @recipe.id).first
-    if order.present?
-      if @recipe.id == order.recipe_id
-        return true
+    if user_signed_in?
+      order = Order.where(user_id: current_user.id, recipe_id: @recipe.id).first
+      if order.present?
+        if @recipe.id == order.recipe_id
+          return true
+        end
+      else
+        flash[:notice] = "レシピを購入してください"
+        redirect_to "/yumyum//recipes/detail/#{@recipe.id}"
       end
-    else
-      flash[:notice] = "レシピを購入してください"
-      redirect_to "/yumyum//recipes/detail/#{@recipe.id}"
     end
 
-
+    if chef_signed_in?
+      current_chef.id == @recipe.chef_id
+      return true
+    end
   end
 
   def new
@@ -44,7 +50,7 @@ class Yumyum::RecipesController < ApplicationController
     @recipe = Recipe.new(params_recipe)
     if @recipe.save
       flash[:notice] = "レシピを登録しました"
-      redirect_to "/yumyum/recipes/#{@recipe.id}"
+      redirect_to "/yumyum/recipes/detail/#{@recipe.id}"
     else
       render new_yumyum_recipe_path
     end
@@ -82,13 +88,24 @@ class Yumyum::RecipesController < ApplicationController
   end
 
   def create_only_chef
-    user_signed_in?
-    flash[:notice] = "このページはシェフ専用のページです"
-    redirect_to yumyum_root_path
+    if chef_signed_in?
+      return false
+    else
+      user_signed_in?
+      flash[:notice] = "このページはシェフ専用のページです"
+      redirect_to yumyum_root_path
+    end
   end
 
   def search
-    @recipes = Recipe.search(params[:name], params[:food_stuff], params[:search])
+    @recipes = Recipe.search(params[:search])
+    @title = params[:search]
+  end
+
+  def genre
+    @recipes = Recipe.search(params[:genre])
+    @titel = genre
+    binding.pry
   end
 
   private

@@ -1,0 +1,29 @@
+<div class="chefs-list">
+  <% recipes.each do |recipe| %>
+    <div class="chefs-contents">
+      <%= link_to "/yumyum/recipes/detail/#{recipe.id}" do %>
+      <div class="chef-logo">
+        <% if recipe.main_image? %>
+          <%= image_tag recipe.main_image.thumb.url, class: "recipe-logo" %>
+        <% else %>
+          <%= image_tag "usericon.png" %>
+        <% end %>
+      </div>
+      <div class="chef-info">
+        <div class="details">
+          <p class="hoge">料理名：</p>
+          <p><%= recipe.name %></p>
+        </div>
+        <div class="details">
+          <p class="hoge">シェフ：</p>
+          <p></p>
+        </div>
+        <div class="details">
+          <p class="hoge">価格：</p>
+          <p>￥500</p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

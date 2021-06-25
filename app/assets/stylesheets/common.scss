@@ -5,18 +5,19 @@ a {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  list-style-type: none;
 }
-p,input,a, h2{
+p,input,a, h2, li{
   font-family: 'Shippori Mincho B1', serif;
 }
-img  {
+img ul {
   padding: 0;
   margin: 0;
 }
 header {
   width: 100%;
   background-color: #ffffc3;
-  padding: 4px 40px;
+  padding: 4px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,6 +43,49 @@ header a:hover {
   color: #262e6c;
   border-radius: 8px;
   margin-bottom: 16px;
+}
+.menu, .genre{
+  display: flex;
+  justify-content:center;
+  color: #262e6c;
+  width: 14%;
+}
+
+.menu li, .genre li{
+  width: 100%;
+  margin-left: 1px;
+  padding: 8px;
+  background: #ffc55c;
+  font-size: 26px;
+  position: relative;
+  text-align: center;
+}
+
+.menuSub, .genreSub{
+  position: absolute;
+  margin-left: -9px;
+  padding: 0;
+  display: none;
+  width: 100%;
+}
+
+/*.openが付与された時、表示の設定*/
+.menuSub.open, .genreSub.open{
+  display: block;
+}
+
+.menuSub li a, .genreSub li a{
+  margin-left: -5px;
+  margin-right: -6px;
+  margin-bottom: -5px;
+  display: block;
+  color: #262e6c;
+  font-size: 18px;
+  white-space: nowrap;
+}
+.menuSub li a:hover, .genresub li a:hover{
+  background: #FFCA7B;
+  color: #ffffff;
 }
 .top {
   background-image: image-url('top.jpg');

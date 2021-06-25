@@ -7,4 +7,13 @@ class Recipe < ApplicationRecord
 
   belongs_to :chef,  dependent: :destroy
   has_one    :order, dependent: :destroy
+
+  def Recipe.search(search)
+      return Recipe.all unless search
+      Recipe.where(['name LIKE? OR food_stuff LIKE?', "%#{search}%", "%#{search}%"])
+  end
+
+  def Recipe.search(genre)
+    Recipe.where(['genre', "#{search}"])
+  end
 end

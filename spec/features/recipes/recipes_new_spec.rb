@@ -18,6 +18,6 @@ RSpec.feature "レシピ新規登録の有効性", type: :feature do
     find("#price", visible: false).set(500)
     fill_in "recipe_advise",with: "testadvise"
     click_on "レシピ登録"
-
+    
   end
 end

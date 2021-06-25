@@ -23,13 +23,15 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :yumyum do
     root "top#index"
-    get "search",          :to => "recipes#search"
+
     resources :top,        only: [:index]
     resources :users,      except: [:index]
     get "users/card/:id",      :to => "users#card"
     get "users/purchase_recipes/:id",   :to => "users#purchase_recipes"
     resources :chefs
     get "chef_recipes/:id", :to => "chefs#chef_recipes"
+    get "search",          :to => "recipes#search"
+    get "genre",           :to => "recipes#genre"
     resources :recipes do
       resources :orders,     only: [:create]
     end

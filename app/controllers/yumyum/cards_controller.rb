@@ -14,13 +14,11 @@ class Yumyum::CardsController < ApplicationController
       description: "test",
       card: params[:token_id]
     )
-
     card = Card.new(
       customer_id: customer.id,
       token_id: params[:token_id],
       user_id: current_user.id
     )
-
     if card.save
       flash[:notice] = "クレジットカードを登録しました"
       redirect_to yumyum_recipes_path
@@ -28,6 +26,5 @@ class Yumyum::CardsController < ApplicationController
       flash[:alert] = "カード情報が間違っています"
       render new_yumyum_card_path
     end
-
   end
 end
