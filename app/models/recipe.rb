@@ -13,7 +13,4 @@ class Recipe < ApplicationRecord
       Recipe.where(['name LIKE? OR food_stuff LIKE?', "%#{search}%", "%#{search}%"])
   end
 
-  def Recipe.search(genre)
-    Recipe.where(['genre', "#{search}"])
-  end
 end

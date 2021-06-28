@@ -102,11 +102,7 @@ class Yumyum::RecipesController < ApplicationController
     @title = params[:search]
   end
 
-  def genre
-    @recipes = Recipe.search(params[:genre])
-    @titel = genre
-    binding.pry
-  end
+
 
   private
   def params_recipe

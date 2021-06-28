@@ -40,6 +40,12 @@ ActiveRecord::Schema.define(version: 2021_06_23_122405) do
     t.index ["reset_password_token"], name: "index_chefs_on_reset_password_token", unique: true
   end
 
+  create_table "genres", id: :integer, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "genre_name", limit: 50
+    t.string "price", limit: 50
+    t.timestamp "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+  end
+
   create_table "orders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "recipe_id"
