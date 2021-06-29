@@ -30,14 +30,14 @@ Rails.application.routes.draw do
     get "users/purchase_recipes/:id",   :to => "users#purchase_recipes"
     resources :chefs
     get "chef_recipes/:id", :to => "chefs#chef_recipes"
-    get "search",          :to => "recipes#search"
-    get "genre",           :to => "recipes#genre"
+    get "search",           :to => "recipes#search"
     resources :recipes do
       resources :orders,     only: [:create]
     end
     get "recipes/detail/:id",  :to => "recipes#detail"
     resources  :products
     resources  :cards,     only: [:new, :create]
+    resources  :genres,    only: [:show]
   end
 
 end
