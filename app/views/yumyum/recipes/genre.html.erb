@@ -3,4 +3,7 @@
     <h2>ジャンル</h2>
   </div>
   <%= render "recipes", recipes: @recipes %>
+  <div class="paginate">
+    <%= paginate @recipes %>
+  </div>
 </div>

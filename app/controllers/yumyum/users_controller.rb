@@ -69,7 +69,7 @@ class Yumyum::UsersController < ApplicationController
 
   def purchase_recipes
     @user = User.find(params[:id])
-    @orders = Order.where(user_id: current_user.id)
+    @orders = Order.where(user_id: @user.id).page(params[:page]).per(12)
   end
 
   private

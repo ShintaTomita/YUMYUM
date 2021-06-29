@@ -2,9 +2,8 @@
   <div class="top-title">
     <h2>シェフ</h2>
   </div>
-
   <div class="chefs-list">
-  <% @chefs.each do |chef| %>
+    <% @chefs.each do |chef| %>
       <div class="chefs-contents">
         <%= link_to "/yumyum/chefs/#{chef.id}" do %>
         <div class="chef-logo">
@@ -30,6 +29,9 @@
         </div>
         <% end %>
       </div>
-  <% end %>
+    <% end %>
+  </div>
+  <div class="paginate">
+    <%= paginate @chefs %>
   </div>
 </div>

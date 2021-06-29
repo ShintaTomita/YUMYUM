@@ -11,11 +11,11 @@
   <ul class="genre">
     <li>ジャンル
       <ul class="genreSub">
-        <li><%= link_to "主食", "/yumyum/genre", genre:"主食" %></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li><%= link_to "主食", "/yumyum/genres/1", id: 1 %></li>
+        <li><%= link_to "副食", "/yumyum/genres/2", id: 2 %></li>
+        <li><%= link_to "スープ", "/yumyum/genres/3", id: 3 %></li>
+        <li><%= link_to "ドレッシング・ソース", "/yumyum/genres/4", id: 4 %></li>
+        <li><%= link_to "デザート", "/yumyum/genres/5", id: 5 %></li>
       </ul>
     </li>
   </Ul>
@@ -31,6 +31,7 @@
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
             <% else %>
               <li><%= link_to "レシピを登録する", new_yumyum_recipe_path %></li>
+              <li><%= link_to "登録レシピ一覧", "/yumyum/chef_recipes/#{current_chef.id}", chef_id: current_chef.id %></li>
               <li><%= link_to "マイページ", "/yumyum/chefs/#{current_chef.id}" %></li>
               <li><%= link_to "ログアウト",destroy_chef_session_path, method: :delete %></li>
             <% end %>

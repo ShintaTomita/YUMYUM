@@ -5,15 +5,20 @@
       <%= image_tag @recipe.main_image.url %>
     </div>
     <div class="form-contents">
-        <div class="contents recipe-content">
-          <p>材料</p>
+      <div class="contents recipe-content">
+        <p>材料</p>
           <%= @recipe.food_stuff %>
-        </div>
-        <%= render "show_recipe", recipe: @recipe %>
-        <div class="contents">
-          <p class="advise">アドバイス</p>
-          <%= @recipe.advise %>
-        </div>
+      </div>
+      <%= render "show_recipe", recipe: @recipe %>
+      <div class="contents">
+        <p class="advise">アドバイス</p>
+        <%= @recipe.advise %>
+      </div>
+      <% if current_chef.id.present? %>
+        <% if @recipe.chef_id = current_chef.id %>
+          <%= link_to "レシピを編集する", edit_yumyum_recipe_path(@recipe.id) %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

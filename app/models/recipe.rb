@@ -6,6 +6,7 @@ class Recipe < ApplicationRecord
   mount_uploader :fourth_image, ImageUploader
 
   belongs_to :chef,  dependent: :destroy
+  belongs_to :genre
   has_one    :order, dependent: :destroy
 
   def Recipe.search(search)
