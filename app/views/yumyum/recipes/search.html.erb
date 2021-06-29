@@ -2,5 +2,8 @@
   <div class="top-title">
     <h2><%= @title %></h2>
   </div>
-  <%= render "recipes", recipes: @recipes %>
+  <%= render "layouts/recipes", recipes: @recipes %>
+  <div class="paginate">
+    <%= paginate @recipes %>
+  </div>
 </div>

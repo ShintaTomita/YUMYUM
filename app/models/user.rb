@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   mount_uploader :image, ImageUploader
   # Include default devise modules. Others available are:
@@ -12,5 +14,4 @@ class User < ApplicationRecord
 
   has_one :card,    dependent: :destroy
   has_many :orders, dependent: :destroy
-
 end

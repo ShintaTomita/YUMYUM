@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Chef < ApplicationRecord
   mount_uploader :image, ImageUploader
   # Include default devise modules. Others available are:

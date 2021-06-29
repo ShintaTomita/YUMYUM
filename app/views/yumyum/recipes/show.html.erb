@@ -14,8 +14,8 @@
         <p class="advise">アドバイス</p>
         <%= @recipe.advise %>
       </div>
-      <% if current_chef.id.present? %>
-        <% if @recipe.chef_id = current_chef.id %>
+      <% if chef_signed_in? %>
+        <% if @recipe.chef_id == current_chef.id %>
           <%= link_to "レシピを編集する", edit_yumyum_recipe_path(@recipe.id) %>
         <% end %>
       <% end %>

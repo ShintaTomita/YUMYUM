@@ -1,7 +1,7 @@
 <div class="chefs-list">
   <% relation_recipes.each do |relation_recipe| %>
     <div class="chefs-contents">
-      <%= link_to "/yumyum/recipes/detail/#{recipe.id}" do %>
+      <%= link_to "/yumyum/recipes/detail/#{relation_recipe.id}" do %>
       <div class="chef-logo">
         <% if relation_recipe.main_image? %>
           <%= image_tag relation_recipe.main_image.thumb.url, class: "recipe-logo" %>

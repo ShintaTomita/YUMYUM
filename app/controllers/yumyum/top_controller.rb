@@ -1,5 +1,7 @@
-class Yumyum::TopController < ApplicationController
+# frozen_string_literal: true
 
-  def index
+module Yumyum
+  class TopController < ApplicationController
+    def index; end
   end
 end
