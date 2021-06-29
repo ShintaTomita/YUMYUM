@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Yumyum::ChefsController, type: :request do
-  describe "YumYum::ChefsController" do
+  describe 'YumYum::ChefsController' do
     let!(:chef) { create(:chef) }
 
     before do
@@ -9,7 +11,7 @@ RSpec.describe Yumyum::ChefsController, type: :request do
       get yumyum_chefs_path
     end
 
-    it "ページが表示されるか" do
+    it 'ページが表示されるか' do
       expect(response).to have_http_status(200)
       get "/yumyum/chefs/#{chef.id}"
       expect(response).to have_http_status(200)

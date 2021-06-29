@@ -8,22 +8,24 @@
     </div>
     <div class="form-contents recipe-contents">
       <div class="chef-info">
-        <div class="details details-page">
-          <p class="hoge">料理名：</p>
-          <p><%= @recipe.name %></p>
-        </div>
-        <div class="details details-page">
-          <p class="hoge">シェフ：</p>
-          <p><%= link_to @chef.name, "/yumyum/chefs/#{@chef.id}" %></p>
-        </div>
-        <div class="details details-page">
-          <p class="hoge">価格：</p>
-          <p>￥500</p>
-        </div>
+        <%= render "detail", recipe: @recipe %>
         <div class="contents">
-          <p><%= link_to "このレシピを購入する", yumyum_recipe_orders_path(@recipe.id), recipe_id: @recipe.id, method: :post %></p>
+          <% if @order.present? %>
+            <% if @recipe.id == @order.recipe_id %>
+              <p><%= link_to "このレシピはこちら", yumyum_recipe_path(@recipe.id) %></p>
+            <% end %>
+          <% else %>
+            <p><%= link_to "このレシピを購入する", yumyum_recipe_orders_path(@recipe.id), recipe_id: @recipe.id, method: :post, id: "purchase" %></p>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
+  <div class="relation-products">
+    <div class="relation-title">
+      <h3>こんなレシピはどうですか？</h3>
+    </div>
+    <%= render "layouts/relation_products.html.erb", relation_recipes: @relation_recipes %>
+  </div>
 </div>
+<%= javascript_pack_tag "card/purchase.js" %>

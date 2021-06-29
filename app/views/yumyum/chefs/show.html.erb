@@ -42,10 +42,12 @@
         <p>自己紹介</p>
         <p class="introduce"><%= @chef.introduction %></p>
       </div>
-      <% if chef_signed_in? %>
-        <div class="submit">
-          <%= link_to "プロフィール編集", edit_yumyum_chef_path %>
-        </div>
+      <% if current_chef.id.present? %>
+        <% if @chef.id == current_chef.id %>
+          <div class="submit">
+            <%= link_to "プロフィール編集", edit_yumyum_chef_path %>
+          </div>
+        <% end %>
       <% end %>
       <div class="submit recipes">
         <%= link_to "#{@chef.name}さんが提供しているレシピ", "/yumyum/chef_recipes/#{@chef.id}", chef_id: @chef.id %>

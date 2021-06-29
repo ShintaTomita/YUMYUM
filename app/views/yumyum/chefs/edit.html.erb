@@ -40,11 +40,11 @@
       <% if current_chef %>
         <div class="submit">
           <%= f.submit "プロフィール登録" %>
-          <%= link_to "アカウントを削除する", "/yumyum/chefs/#{@chef.id}", method: :delete %>
+          <%= link_to "アカウントを削除する", "/yumyum/chefs/#{@chef.id}", method: :delete, id: "destroy" %>
         </div>
       <% end %>
-
     </div>
     <% end %>
   </div>
 </div>
+<%= javascript_pack_tag "users/user_destroy.js" %>

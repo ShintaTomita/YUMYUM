@@ -44,9 +44,10 @@
       </div>
       <div class="submit">
         <%= f.submit "レシピ登録" %>
-        <%= link_to "レシピを削除する", "/yumyum/recipes/#{@recipe.id}", method: :delete %>
+        <%= link_to "レシピを削除する", "/yumyum/recipes/#{@recipe.id}", method: :delete, id: "destroy" %>
       </div>
       <% end %>
     </div>
   </div>
 </div>
+<%= javascript_pack_tag "users/user_destroy.js" %>

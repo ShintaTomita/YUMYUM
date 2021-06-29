@@ -1,5 +1,6 @@
-class Order < ApplicationRecord
+# frozen_string_literal: true
 
-  belongs_to :user
-  belongs_to :recipe
+class Order < ApplicationRecord
+  belongs_to :user,   dependent: :destroy
+  belongs_to :recipe, dependent: :destroy
 end

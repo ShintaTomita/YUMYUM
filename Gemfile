@@ -39,6 +39,9 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_bot_rails' 
+  gem 'rubocop'
+  gem 'rubocop-rails'
+  gem 'rspec_junit_formatter'
 end
 
 group :development do
@@ -56,3 +59,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "aws-sdk", "~> 2.3"
+gem "kaminari"

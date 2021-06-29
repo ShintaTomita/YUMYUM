@@ -4,31 +4,43 @@
   </div>
   <div class="product-search">
     <%= form_with url:yumyum_search_path, method: :get, local: true do |f|%>
-      <%= f.text_field :address, placeholder: "料理名や食材を入力してください" %>
+      <%= f.text_field :search, placeholder: "料理名や食材を入力してください" %>
       <% f.submit 'Search', :name => "" %>
     <% end %>
   </div>
-  <div class="genle">
-    <%= link_to "レシピ一覧", yumyum_recipes_path %>
-    <% if chef_signed_in? %>
-      <%= link_to "レシピを登録する", new_yumyum_recipe_path %>
-    <% end %>
-
-  </div>
-  <% if user_signed_in? or chef_signed_in? %>
-    <div class="login-menu">
-      <% if user_signed_in? %>
-        <%= link_to "マイページ", "/yumyum/users/#{current_user.id}" %>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "マイページ", "/yumyum/chefs/#{current_chef.id}" %>
-        <%= link_to "ログアウト",destroy_chef_session_path, method: :delete %>
-      <% end %>
-    </div>
-  <% else %>
-    <div class="login-menu">
-      <%= link_to "新規登録", new_yumyum_user_path %>
-      <%= link_to "ログイン", new_user_session_path %>
-    </div>
-  <% end %>
+  <ul class="genre">
+    <li>ジャンル
+      <ul class="genreSub">
+        <li><%= link_to "主食", "/yumyum/genres/1", id: 1 %></li>
+        <li><%= link_to "副食", "/yumyum/genres/2", id: 2 %></li>
+        <li><%= link_to "スープ", "/yumyum/genres/3", id: 3 %></li>
+        <li><%= link_to "ドレッシング・ソース", "/yumyum/genres/4", id: 4 %></li>
+        <li><%= link_to "デザート", "/yumyum/genres/5", id: 5 %></li>
+      </ul>
+    </li>
+  </Ul>
+  <ul class="menu">
+    <li>Menu
+      <ul class="menuSub">
+        <li><%= link_to "レシピ一覧", yumyum_recipes_path %></li>
+        <li><%= link_to "シェフ一覧", yumyum_chefs_path %></li>
+          <% if user_signed_in? or chef_signed_in? %>
+            <% if user_signed_in? %>
+              <li><%= link_to "マイページ", "/yumyum/users/#{current_user.id}" %></li>
+              <li><%= link_to "購入履歴", "/yumyum/users/purchase_recipes/#{current_user.id}" %></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "レシピを登録する", new_yumyum_recipe_path %></li>
+              <li><%= link_to "登録レシピ一覧", "/yumyum/chef_recipes/#{current_chef.id}", chef_id: current_chef.id %></li>
+              <li><%= link_to "マイページ", "/yumyum/chefs/#{current_chef.id}" %></li>
+              <li><%= link_to "ログアウト",destroy_chef_session_path, method: :delete %></li>
+            <% end %>
+          <% else %>
+            <li><%= link_to "新規登録", new_yumyum_user_path %></li>
+            <li><%= link_to "ログイン", new_user_session_path %></li>
+          <% end %>
+      </ul>
+    </li>
+  </ul>
 </header>
+<%= javascript_pack_tag "header/menu_btn.js" %>

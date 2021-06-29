@@ -1,4 +1,5 @@
-class Card < ApplicationRecord
+# frozen_string_literal: true
 
-  belongs_to :user
+class Card < ApplicationRecord
+  belongs_to :user, dependent: :destroy
 end

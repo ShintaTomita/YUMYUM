@@ -1,0 +1,33 @@
+<div class="top">
+  <div class="top-title">
+    <h2>購入レシピ</h2>
+  </div>
+  <div class="chefs-list">
+  <% @orders.each do |order| %>
+    <div class="chefs-contents">
+      <%= link_to "/yumyum/recipes/#{order.recipe_id}" do %>
+        <div class="chef-logo">
+          <% if order.recipe.main_image.present? %>
+            <%= image_tag order.recipe.main_image.thumb.url %>
+          <% else %>
+            <%= image_tag "usericon.png" %>
+          <% end %>
+        </div>
+        <div class="chef-info">
+          <div class="details">
+            <p class="hoge">料理名：</p>
+            <p><%= order.recipe.name %></p>
+          </div>
+          <div class="details">
+            <p class="hoge">ジャンル：</p>
+            <p></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  </div>
+  <div class="paginate">
+    <%= paginate @orders %>
+  </div>
+</div>
