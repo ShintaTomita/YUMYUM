@@ -23,7 +23,6 @@ jobs:
          - BUNDLER_VERSION: 1.17.2
          - RAILS_ENV: 'test'
       -image: circleci/mysql:8.0.25
-        naeme: "db"
         environment:
           MYSQL_ROOT_PASSWORD: password
           environment:
