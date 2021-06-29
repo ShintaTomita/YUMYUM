@@ -1,52 +1,64 @@
 version: 2.1
 
-orb:
-  ruby: circleci/ruby@1.1.2
-  node: circleci/node@2
-
-commands:
-  setup:
-    steps:
-      - checkout
-      - ruby/install-deps
-      - node/install-packages:
-          pkg-manager: yarn
-          cache-key: "yarn.lock"
 jobs:
   build:
     docker:
-      -image: circleci/ruby
-      environment:
-         - BUNDLE_JOBS: 3
-         - BUNDLE_RETRY: 3
-         - BUNDLE_PATH: vendor/bundle
-         - BUNDLER_VERSION: 1.17.2
-         - RAILS_ENV: 'test'
-      -image: circleci/mysql:8.0.25
-        environment
-          MYSQL_ROOT_PASSWORD: password
-          MYSQL_USER: 'root'
-          MYSQL_ROOT_PASSWORD: 'password'
-          MYSQL_PASSWORD: 'password'
-          MYSQL_DATABASE: 'yumyum_test'
-          MYSQL_HOST: 'db'
-        name: db
+      - image:  circleci/ruby:2.6.3-node-browsers
+        environment:
+          - BUNDLE_JOBS: 3
+          - BUNDLE_RETRY: 3
+          - BUNDLE_PATH: vendor/bundle
+          - BUNDLER_VERSION: 1.17.3
+          - RAILS_ENV: 'test'
+      - image:  circleci/mysql:8.0.25
+        environment:
+          MYSQL_ROOT_PASSWORD:  "password"
+        name: "db"
 
-working_directory: ~/yumyum
+    working_directory: ~/yumyum
 
-  -run:
-    name: rubocop
-    command: bundle exec rubocop
+    steps:
+      -checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - v1-dependencies-
+      - run:
+        name: install dependencies
+        command: |
+          gem install bundler -v 2.0.2
+          bundle install --jobs=4 --retry=3 --path vendor/bundle
 
-  - run:
-      name: Run rspec
-      command: bundle exec rspec
+      - save_cache:
+        paths:
+          - ./vendor/bundle
+        key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
-workflows:
-  version: 2
-  test_and_deploy:
-    jobs:
-      - build
-      - test:
-          requires:
-            - build
+      - run: mv config/database.yml.ci config/database.yml
+
+      - run: bundle exec rake db:create
+      - run: bundle exec rake db:schema:load
+
+      -run:
+        name: Rubocop
+        command: bundle exec rubocop
+
+      - run:
+        name: run test
+        command: |
+          mkdir /tmp/test-results
+          TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+            circleci tests split --split-by=timings)"
+          bundle exec rspec \
+            --format progress \
+            --format RspecJunitFormatter \
+            --out /tmp/test-results/rspec.xml \
+            --format progress \
+            $TEST_FILES
+
+
+      - store_test_results:
+        path: /tmp/test-results
+      - store_artifacts:
+        path: /tmp/test-results
+        destination: test-results
