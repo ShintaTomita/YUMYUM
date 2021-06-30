@@ -1,24 +1,16 @@
-# README
+昨今の新型コロナウイルスにより、飲食店は大打撃を受けました。
+そこで何か飲食店の方々に対して何かいいサービスができることはないかと思いました。
+ウーバーイーツ、お弁当などではなく、そのお店の味を自宅でも味わいたい。
+そして、遠く離れて食べに行けないあの飲食店の料理を自宅でも食べたい。
+何か可能にする事はできないかと思いました。
+思いつきました！！
+レシピを販売してはどうかと。
+僕自身これまで精肉店で働いてきました。
+各店舗には必ずといっていい程オリジナルのレシピが存在します。
+それはタレであったり、お惣菜であったり、様々です。
+お客様の中には付属のタレだけ売って欲しいというお客様もいました。
+タレだけは売れませんと断っていましたが、こういう時にレシピを販売すればお客様自身で作る事が出来、おうちで楽しむ事が出来る。
+食べに行けないなら自分で作ってしまおう！！
+毎日、外食気分。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
