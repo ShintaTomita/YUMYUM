@@ -10,6 +10,7 @@ class Recipe < ApplicationRecord
   belongs_to :chef, dependent: :destroy
   belongs_to :genre
   has_one    :order, dependent: :destroy
+  has_many   :posts, dependent: :destroy
 
   def self.search(search)
     return Recipe.all unless search

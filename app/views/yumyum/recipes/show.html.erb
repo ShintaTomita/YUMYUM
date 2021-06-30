@@ -18,6 +18,8 @@
         <% if @recipe.chef_id == current_chef.id %>
           <%= link_to "レシピを編集する", edit_yumyum_recipe_path(@recipe.id) %>
         <% end %>
+      <% else %>
+        <%= link_to "このレシピについてコメントを書く", new_yumyum_post_path(recipe: @recipe) %>
       <% end %>
     </div>
   </div>

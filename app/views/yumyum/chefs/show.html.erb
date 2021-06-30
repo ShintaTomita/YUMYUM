@@ -42,7 +42,7 @@
         <p>自己紹介</p>
         <p class="introduce"><%= @chef.introduction %></p>
       </div>
-      <% if current_chef.id.present? %>
+      <% if chef_signed_in? %>
         <% if @chef.id == current_chef.id %>
           <div class="submit">
             <%= link_to "プロフィール編集", edit_yumyum_chef_path %>
