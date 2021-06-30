@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     resources :users,      except: [:index]
     get "users/card/:id",      :to => "users#card"
     get "users/purchase_recipes/:id",   :to => "users#purchase_recipes"
+    get "users/profile/:id",             :to => "users#profile"
     resources :chefs
     get "chef_recipes/:id", :to => "chefs#chef_recipes"
     get "search",           :to => "recipes#search"
@@ -38,6 +39,7 @@ Rails.application.routes.draw do
     resources  :products
     resources  :cards,     only: [:new, :create]
     resources  :genres,    only: [:show]
+    resources  :posts
   end
 
 end

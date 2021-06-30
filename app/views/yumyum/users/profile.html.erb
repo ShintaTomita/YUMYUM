@@ -14,25 +14,23 @@
       </div>
       <div class="contents">
         <p>お名前</p>
-        <p class ="contents-text"><%= @user.name%></p>
-      </div>
-      <div class="contents">
-        <p>メールアドレス</p>
-        <p class ="contents-text"><%= @user.email %></p>
+        <%= @user.name%>
       </div>
       <div class="contents">
         <p>性別</p>
-        <p class ="contents-text"><%= @user.sex %></p>
+        <%= @user.sex %>
       </div>
       <div class="contents">
         <p>年齢</p>
-        <p class ="contents-text"><%= @user.age %></p>
-      </div>
-      <div class="submit">
-        <%= link_to "プロフィール編集", edit_yumyum_user_path %>
-        <%= link_to "クレジットカード情報", "/yumyum/users/card/#{@user.id}" %>
+        <%= @user.age %>
       </div>
     </div>
     <% end %>
+  </div>
+  <div class="relation_products">
+    <div class="relation-title">
+      <h3><%= "#{@user.name}さんが購入したレシピ" %></h3>
+    </div>
+    <%= render "orders_recipe", orders: @orders %>
   </div>
 </div>

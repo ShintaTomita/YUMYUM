@@ -1,0 +1,137 @@
+@media (max-width: 670px) {
+  header {
+    font-size: 16px;
+    padding: 8px;
+  }
+  .header-logo a {
+    font-size: 14px;
+  }
+  .product-search {
+    display: none;
+  }
+  .menu, .genre {
+    width: 30%;
+  }
+  .menu li, .genre li {
+    font-size: 14px;
+  }
+  .menuSub li a, .genreSub li a {
+    font-size: 8px;
+  }
+  .top-title{
+    padding-top: 80px;
+  }
+  .top h1 {
+    font-size: 45px;
+  }
+  .top-contents p {
+    font-size: 20px;
+  }
+  .top-contents h1 {
+    font-size: 26px;
+  }
+  .logo img {
+    height: 320px;
+  }
+  .link-button {
+    top: 250px;
+    left: 50px;
+  }
+  .link-button a{
+    font-size: 12px;
+    padding:12px;
+    margin-right: 18px;
+  }
+  .sub-contents p {
+    font-size: 12px;
+    padding: 2px;
+  }
+  .account {
+    padding: 150px 20px 250px 20px;
+  }
+  .flash {
+    top: 50px;
+    font-size: 16px;
+  }
+  .form-title h2 {
+    font-size: 20px;
+  }
+  .form-contents p {
+    font-size: 8px;
+  }
+  .recipe-form img, .form-title img{
+    width: 280px;
+    height: 250px;
+  }
+  .cook-contents img {
+    width: 80px;
+    height: 50px;
+  }
+  .contents input {
+    height: 35px;
+    width: 80%;
+    font-size: 12px;
+  }
+  .submit input{
+    width: 80%;
+    padding: 4px;
+  }
+  .sumit a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 14px;
+  }
+  .login-menu {
+    width: 100%;
+  }
+  .login-menu a {
+    font-size: 8px;
+  }
+  .top-title h2 {
+    font-size: 31px;
+    padding: 18px 20px;
+  }
+  .chefs-contents {
+    width: 45%;
+    margin-bottom: 20px;
+  }
+  .chef-logo img {
+    width: 80px;
+    height: 50px;
+  }
+  .chef-info {
+    font-size: 10px;
+  }
+  .pagination {
+    font-size: 10px;
+  }
+  .relation-title h3 {
+    font-size: 18px;
+  }
+  .posts-title h2 {
+    font-size: 18px;
+  }
+  .post-text {
+    font-size: 12px;
+  }
+  .profile-logo img {
+    width: 25px;
+    height: 25px;
+  }
+  .contents-text {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .content span {
+    margin-right: 2px;
+    font-size: 14px;
+  }
+  .contents textarea {
+    width: 80%;
+    font-size: 14px;
+  }
+  .contents p {
+    font-size: 14px;
+    font-weight: boldt
+  }
+}

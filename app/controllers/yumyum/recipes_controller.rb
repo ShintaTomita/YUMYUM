@@ -16,6 +16,7 @@ module Yumyum
       if user_signed_in? || chef_signed_in?
         @recipe = Recipe.find(params[:id])
         @relation_recipes = Recipe.where(genre_id: @recipe.genre.id).where.not(id: @recipe.id).limit(4)
+        @posts = @recipe.posts.limit(6)
         @order = Order.where(user_id: current_user.id, recipe_id: @recipe.id).first if user_signed_in?
       else
         flash[:alert] = '新規登録、ログインをしてください'
