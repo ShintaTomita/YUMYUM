@@ -189,6 +189,7 @@ footer {
 }
 .contents {
   width: 100%;
+  word-break: break-all;
 }
 .contents input  {
   height: 42px;
@@ -433,4 +434,8 @@ footer {
   font-weight: bold;
   color: #ffffff;
   word-break: break-all;
+}
+.contents-text {
+  font-size: 24px;
+  font-weight: bold;
 }
