@@ -1,0 +1,26 @@
+<div class="account recipe-detail">
+  <div class="form cooking">
+    <div class="form-title">
+      <h2><%= @recipe.name %></h2>
+      <%= image_tag @recipe.main_image.url %>
+    </div>
+    <div class="form-contents">
+      <div class="contents recipe-content">
+        <p>材料</p>
+          <%= @recipe.food_stuff %>
+      </div>
+      <%= render "show_recipe", recipe: @recipe %>
+      <div class="contents">
+        <p class="advise">アドバイス</p>
+        <%= @recipe.advise %>
+      </div>
+      <% if chef_signed_in? %>
+        <% if @recipe.chef_id == current_chef.id %>
+          <%= link_to "レシピを編集する", edit_yumyum_recipe_path(@recipe.id) %>
+        <% end %>
+      <% else %>
+        <%= link_to "このレシピについてコメントを書く", new_yumyum_post_path(recipe: @recipe) %>
+      <% end %>
+    </div>
+  </div>
+</div>

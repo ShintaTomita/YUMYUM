@@ -53,3 +53,4 @@ production:
   database: yumyum_production
   username: yumyum
   password: <%= ENV['YUMYUM_DATABASE_PASSWORD'] %>
+  url: <%= ENV['JAWSDB_URL']&.sub('mysql://', 'mysql2://') %>

@@ -1,0 +1,16 @@
+<div class="details details-page">
+  <p class="hoge">料理名：</p>
+  <p><%= recipe.name %></p>
+</div>
+<div class="details details-page">
+  <p class="hoge">シェフ：</p>
+  <p><%= link_to recipe.chef.name, "/yumyum/chefs/#{recipe.chef.id}" %></p>
+</div>
+<div class="details details-page">
+  <p class="hoge">材料：</p>
+  <p><%= recipe.food_stuff %></p>
+</div>
+<div class="details details-page">
+  <p class="hoge">価格：</p>
+  <p>¥<%= recipe.genre.price %></p>
+</div>

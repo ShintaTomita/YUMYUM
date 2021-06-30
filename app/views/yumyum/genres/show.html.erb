@@ -1,0 +1,9 @@
+<div class="top">
+  <div class="top-title">
+    <h2><%= @genre.genre_name %></h2>
+  </div>
+  <%= render "layouts/recipes", recipes: @recipes %>
+  <div class="paginate">
+    <%= paginate @recipes %>
+  </div>
+</div>

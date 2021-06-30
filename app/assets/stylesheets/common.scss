@@ -1,0 +1,441 @@
+a {
+  text-decoration: none;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+li {
+  word-break: break-all;
+}
+p,input,a, h2, li{
+  font-family: 'Shippori Mincho B1', serif;
+}
+img ul {
+  padding: 0;
+  margin: 0;
+}
+header {
+  width: 100%;
+  background-color: #ffffc3;
+  padding: 4px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32px;
+  color:#262e6c;
+  position: fixed;
+  z-index: 10;
+}
+header a:hover {
+  color: #ffc55c;
+}
+.header-logo a {
+  font-family: 'Rock Salt', cursive;
+  font-size: 30px;
+  color: #262e6c;
+}
+.product-search {
+  width: 24%;
+}
+.product-search input {
+  width: 100%;
+  height: 40px;
+  color: #262e6c;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+.menu, .genre{
+  display: flex;
+  justify-content:center;
+  color: #262e6c;
+  width: 14%;
+}
+
+.menu li, .genre li{
+  width: 100%;
+  margin-left: 1px;
+  padding: 8px;
+  background: #ffc55c;
+  font-size: 26px;
+  position: relative;
+  text-align: center;
+}
+
+.menuSub, .genreSub{
+  position: absolute;
+  margin-left: -9px;
+  padding: 0;
+  display: none;
+  width: 100%;
+}
+
+/*.openが付与された時、表示の設定*/
+.menuSub.open, .genreSub.open{
+  display: block;
+}
+
+.menuSub li a, .genreSub li a{
+  margin-left: -5px;
+  margin-right: -6px;
+  margin-bottom: -5px;
+  display: block;
+  color: #262e6c;
+  font-size: 18px;
+  white-space: nowrap;
+  width: 100%;
+}
+.menuSub li a:hover, .genresub li a:hover{
+  background: #FFCA7B;
+  color: #ffffff;
+}
+.top {
+  background-image: image-url('top.jpg');
+  background-size:cover;
+  background-repeat: no-repeat;
+  width:  100%;
+  height: auto;
+  padding-bottom: 80px;
+
+}
+.top-title {
+  padding-top: 160px;
+}
+.top h1 {
+  text-align: center;
+  font-family: 'Indie Flower', cursive;
+  font-size:  90px;
+  color: #fffafa;
+  padding: 24px;
+}
+.top-contents {
+  margin-top: 24px;
+  padding: 16px;
+  background-color: white;
+}
+.top-contents P {
+  text-align: center;
+  font-size: 40px;
+  padding: 16px;
+}
+.top-contents h1 {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 54px;
+  color: #2b2b2b;
+}
+.sub-contents {
+  text-align: center;
+  position: relative;
+}
+
+.logo img {
+  width: 100%;
+  height: 480px;
+}
+.link-button  {
+  position: absolute;
+  top: 400px;
+  left: 450px;
+}
+.link-button a {
+  text-align: center;
+  font-size: 24px;
+  color: #262e6c;
+  background-color: #ffffc3;
+  padding: 24px;
+  margin-right: 32px;
+  border-radius: 16px;
+}
+.sub-contents p {
+  font-size: 32px;
+  padding: 16px;
+}
+.contents-text {
+  margin-top: -6px;
+  padding: 24px;
+  background-color: white;
+}
+footer {
+  text-align: center;
+  background-color: #ffc55c;
+  color: #262e6c;
+  height: 80px;
+}
+.account {
+  background-image: image-url('top.jpg');
+  background-size: cover;
+  text-align: center;
+  padding: 160px 450px;
+  color: #262e6c;
+}
+.login {
+  padding: 235px 450px;
+}
+.form {
+  background-color: #ffc55c;
+  border-radius: 16px;
+
+}
+.form-title h2 {
+  font-size: 40px;
+  padding: 8px;
+  font-family: 'Shippori Mincho B1', serif;
+}
+.form-contents p {
+  font-size: 16px;
+  padding: 8px;
+}
+.contents {
+  width: 100%;
+  word-break: break-all;
+}
+.contents input  {
+  height: 42px;
+  width: 75%;
+  border-radius: 8px;
+  border: 2px #262e6c solid;
+  font-size: 16px;
+  padding: 4px;
+  background-color: #FFFFFF;
+}
+.contents select {
+  padding: 8px;
+}
+.content span {
+  margin-right: 4px;
+}
+.content input {
+  margin-left: 4px;
+}
+.contents textarea {
+  height: 240px;
+  width: 75%;
+  border-radius: 8px;
+  border: 2px #262e6c solid;
+  font-size: 16px;
+  padding: 4px;
+  background-color: #FFFFFF;
+}
+.contents a:hover {
+  color: #ffffff;
+}
+.introduce {
+  word-break: break-all;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+
+.submit {
+  margin-top: 16px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.submit input {
+  width: 75%;
+  padding: 8px;
+  background-color: #e6eae3;
+  color: #262e6c;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+.submit a {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 16px;
+  color: #262e6c;
+}
+.submit a:hover, .details-page a:hover {
+  color: #ffffff;
+}
+.flash {
+  width: 100%;
+  background-color: #99FFFF;
+  font-size: 20px;
+  font-family: 'Shippori Mincho B1', serif;
+  color: #262e6c;
+  height: 56px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 80px;
+}
+.login-menu {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.login-menu a {
+  font-size: 19px;
+  text-align: center;
+  margin-bottom: 4px;
+  color: #262e6c;
+}
+.top-title h2 {
+  font-size: 62px;
+  color: #ffffff;
+  padding: 16px 40px;
+}
+.chefs-list {
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: baseline;
+  width: 100%;
+
+}
+.chefs-contents {
+  background-color: #ffc55c;
+  text-align: center;
+  padding: 16px;
+  width: 22%;
+  margin-bottom: 32px;
+  border-radius: 8px;
+}
+.chefs-contents:hover {
+  transition: transform 0.3s linear;
+  transform: scale(1.05);
+  background-color: #ffffff;
+}
+.chef-logo img{
+  width: 128px;
+  height: 128px;
+}
+.chef-info {
+  font-size: 16px;
+  display:flex;
+  flex-direction: column;
+  margin-top: 12px;
+  color: #262e6c;
+  text-align: center;
+}
+.details {
+  display: flex;
+  justify-content: space-between;
+
+}
+.recipes:hover{
+  transition: transform 0.3s linear;
+  transform: scale(1.05);
+}
+.recipe-logo {
+  width: 128px;
+  height: 128px;
+}
+.recipe-detail {
+  padding: 180px 250px;
+}
+.recipe-form {
+  width: 100%;
+  padding: 16px;
+}
+.recipe-contents p {
+  font-size: 20px;
+}
+.recipe-form img{
+  width: 700px;
+  height: 510px;
+}
+.details-page {
+  display: flex;
+  justify-content: center;
+}
+.details-page p {
+  word-break: keep-all;
+}
+.cooking {
+  padding: 24px;
+}
+.recipe-content {
+  word-break:keep-all;
+}
+.cook-contents {
+  word-break: break-all;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cook-contents p{
+  margin-right: 20px;
+}
+.advise {
+  word-break: keep-all;
+}
+.relation-products {
+  margin-top: 24px;
+}
+.relation-title {
+  margin-bottom: 18px;
+}
+.relation-title h3 {
+  text-align: center;
+  font-family: 'Shippori Mincho B1', serif;
+  color: #ffffff;
+  font-size: 32px;
+}
+.painate {
+  text-align: center;
+}
+.pagination {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+.pagination li {
+  padding: 4px;
+  background-color: #ffc55c;
+  border-left: 1px solid #ffffff;
+}
+.posts-title h2 {
+  font-size: 26px;
+  color: #ffffff;
+}
+.posts {
+  width: 100%;
+  margin-top: 18px;
+  margin-bottom: 18px;
+
+}
+.post-contens {
+  display: flex;
+  align-items: center;
+}
+.post {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 2px dotted #ffffff;
+}
+.profile-logo img {
+  width: 50px;
+  height: 50px;
+  background-color: #ffffff;
+  border-radius: 80%;
+}
+.post:nth-child(odd) {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.post-text{
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  word-break: break-all;
+}
+.contents-text {
+  font-size: 24px;
+  font-weight: bold;
+}

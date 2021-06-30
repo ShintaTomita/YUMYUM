@@ -1,0 +1,58 @@
+<div class="account">
+  <div class="form">
+    <div class="form-title">
+      <h2>プロフィール</h2>
+    </div>
+    <%= form_with model: @chef, :url => { :action => :show} do |f| %>
+    <div class="form-contents">
+      <div class="contents">
+        <% if @chef.image.blank? %>
+          <%= image_tag "usericon.png" %>
+        <% else %>
+          <%= link_to @chef.image.url, "data_lightbox": @chef.image do %>
+            <%= image_tag @chef.image.thumb.url %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="contents">
+        <p>お名前</p>
+        <p class="contents-text"><%= @chef.name%></p>
+      </div>
+      <div class="contents">
+        <p>メールアドレス</p>
+        <p class ="contents-text"><%= @chef.email %></p>
+      </div>
+      <div class="contents">
+        <p>店名</p>
+        <p class="contents-text"><%= @chef.shop_name %></p>
+      </div>
+      <div class="contents">
+        <p>ご住所</p>
+        <p class="contents-text"><%= @chef.address %></p>
+      </div>
+      <div class="contents">
+        <p>電話番号</p>
+        <p class="contents-text"><%= @chef.shop_tel %></p>
+      </div>
+      <div class="contents">
+        <p>URL</p>
+        <p class="contents-text"><%= link_to "#{@chef.shop_url}", "#" %></p>
+      </div>
+      <div class="contents">
+        <p>自己紹介</p>
+        <p class="introduce"><%= @chef.introduction %></p>
+      </div>
+      <% if chef_signed_in? %>
+        <% if @chef.id == current_chef.id %>
+          <div class="submit">
+            <%= link_to "プロフィール編集", edit_yumyum_chef_path %>
+          </div>
+        <% end %>
+      <% end %>
+      <div class="submit recipes">
+        <%= link_to "#{@chef.name}さんが提供しているレシピ", "/yumyum/chef_recipes/#{@chef.id}", chef_id: @chef.id %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

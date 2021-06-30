@@ -1,0 +1,36 @@
+<div class="account">
+  <div class="form">
+    <div class="form-title">
+      <h2>プロフィール</h2>
+    </div>
+    <%= form_with model:@user, url: yumyum_users_path do |f| %>
+    <div class="form-contents">
+      <div class="contents">
+        <% if @user.image.blank? %>
+          <%= image_tag "usericon.png" %>
+        <% else %>
+          <%= image_tag @user.image.thumb.url %>
+        <% end %>
+      </div>
+      <div class="contents">
+        <p>お名前</p>
+        <%= @user.name%>
+      </div>
+      <div class="contents">
+        <p>性別</p>
+        <%= @user.sex %>
+      </div>
+      <div class="contents">
+        <p>年齢</p>
+        <%= @user.age %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <div class="relation_products">
+    <div class="relation-title">
+      <h3><%= "#{@user.name}さんが購入したレシピ" %></h3>
+    </div>
+    <%= render "orders_recipe", orders: @orders %>
+  </div>
+</div>

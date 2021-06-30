@@ -1,0 +1,37 @@
+<div class="top">
+  <div class="top-title">
+    <h2>シェフ</h2>
+  </div>
+  <div class="chefs-list">
+    <% @chefs.each do |chef| %>
+      <div class="chefs-contents">
+        <%= link_to "/yumyum/chefs/#{chef.id}" do %>
+        <div class="chef-logo">
+          <% if chef.image? %>
+            <%= image_tag chef.image.thumb.url %>
+          <% else %>
+            <%= image_tag "usericon.png" %>
+          <% end %>
+        </div>
+        <div class="chef-info">
+          <div class="details">
+            <p class="hoge">お名前：</p>
+            <p><%= chef.name %></p>
+          </div>
+          <div class="details">
+            <p class="hoge">店名：</p>
+            <p><%= chef.shop_name %></p>
+          </div>
+          <div class="details">
+            <p class="hoge">ご住所：</p>
+            <p><%= chef.address %></p>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="paginate">
+    <%= paginate @chefs %>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<%= form_with model: recipe, url: yumyum_recipes_path do |f| %>
+<%= f.hidden_field :chef_id, value: current_chef.id %>
+<div class="contents">
+  <p>料理名</p>
+  <%= f.text_field :name, :placeholder => "料理名を入力してください" %>
+</div>
+<div class="content">
+  <p>ジャンル</p>
+  <%= f.radio_button :genre_id, "1" %><span>主食</span>
+  <%= f.radio_button :genre_id, "2" %><span>副食</span>
+  <%= f.radio_button :genre_id, "3" %><span>スープ</span>
+  <%= f.radio_button :genre_id, "4" %><span>トレッシング・ソース</span>
+  <%= f.radio_button :genre_id, "5" %><span>デザート</span>
+</div>
+<div class="contents">
+  <p>材料</p>
+  <%= f.text_area :food_stuff, :placeholder => "料理に使用する材料を入力してください" %>
+</div>
+<div class="contents">
+  <p>料理イメージ</p>
+  <%= f.file_field :main_image, :placeholder => "完成イメージの画像をアップロードしてください" %>
+</div>
+<div class="contents">
+  <p>作り方</p>
+  <%= f.text_area  :first_process, :placeholder => "第1工程を入力してください" %>
+  <%= f.file_field :first_image,  :placeholder => "第1工程の画像をアップロードしてください" %>
+</div>
+<div class="contents">
+  <p>第２工程</p>
+  <%= f.text_area  :second_process, :placeholder => "第2工程を入力してください" %>
+  <%= f.file_field :second_image,   :placeholder => "第2工程の画像をアップロードしてください" %>
+</div>
+<div class="contents">
+  <p>第３工程</p>
+  <%= f.text_area  :third_process, :placeholder => "第3工程を入力してください" %>
+  <%= f.file_field :third_image,   :placeholder => "第3工程の画像をアップロードしてください" %>
+</div>
+<div class="contents">
+  <p>第４工程</p>
+  <%= f.text_area  :fourth_process, :placeholder => "第4工程を入力してください" %>
+  <%= f.file_field :fourth_image,   :placeholder => "第4工程の画像をアップロードしてください" %>
+</div>
+<div class="contents">
+  <p>アドバイス</p>
+  <%= f.text_area :advise, :placeholder => "作る上でのアドバイスを入力してください" %>
+</div>
+<%= f.hidden_field :price, id:'price' %>
+
+<div class="submit">
+  <%= f.submit "レシピ登録" %>
+</div>
+<% end %>

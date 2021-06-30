@@ -1,0 +1,38 @@
+<div class="account">
+  <div class="form">
+    <div class="form-title">
+      <h2>プロフィール</h2>
+    </div>
+    <%= form_with model:@user, url: yumyum_users_path do |f| %>
+    <div class="form-contents">
+      <div class="contents">
+        <% if @user.image.blank? %>
+          <%= image_tag "usericon.png" %>
+        <% else %>
+          <%= image_tag @user.image.thumb.url %>
+        <% end %>
+      </div>
+      <div class="contents">
+        <p>お名前</p>
+        <p class ="contents-text"><%= @user.name%></p>
+      </div>
+      <div class="contents">
+        <p>メールアドレス</p>
+        <p class ="contents-text"><%= @user.email %></p>
+      </div>
+      <div class="contents">
+        <p>性別</p>
+        <p class ="contents-text"><%= @user.sex %></p>
+      </div>
+      <div class="contents">
+        <p>年齢</p>
+        <p class ="contents-text"><%= @user.age %></p>
+      </div>
+      <div class="submit">
+        <%= link_to "プロフィール編集", edit_yumyum_user_path %>
+        <%= link_to "クレジットカード情報", "/yumyum/users/card/#{@user.id}" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

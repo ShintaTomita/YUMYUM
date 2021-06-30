@@ -1,0 +1,23 @@
+<div class="account">
+  <div class="form">
+    <div class="form-title">
+      <h2>パスワード再発行</h2>
+    </div>
+    <div class="form-contents">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <%= render "users/shared/error_messages", resource: resource %>
+
+        <div class="contents">
+          <p>メールアドレス</p>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder=> "メールアドレスを入力してください" %>
+        </div>
+
+        <div class="submit">
+          <%= f.submit "Send me reset password instructions" %>
+        </div>
+      <% end %>
+
+      <%= render "users/shared/links" %>
+    </div>
+  </div>
+</div>

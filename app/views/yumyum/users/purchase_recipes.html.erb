@@ -1,0 +1,9 @@
+<div class="top">
+  <div class="top-title">
+    <h2>購入レシピ</h2>
+  </div>
+  <%= render "orders_recipe", orders: @orders %>
+  <div class="paginate">
+    <%= paginate @orders %>
+  </div>
+</div>

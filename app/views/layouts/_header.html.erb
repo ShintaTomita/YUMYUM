@@ -1,0 +1,14 @@
+<header>
+  <div class="header-logo">
+    <h3><%= link_to "YUMYUM", yumyum_root_path %></h3>
+  </div>
+  <div class="product-search">
+    <%= form_with url:yumyum_search_path, method: :get, local: true do |f|%>
+      <%= f.text_field :search, placeholder: "料理名や食材を入力してください" %>
+      <% f.submit 'Search', :name => "" %>
+    <% end %>
+  </div>
+  <%= render "layouts/genre" %>
+  <%= render "layouts/menu" %>
+</header>
+<%= javascript_pack_tag "header/menu_btn.js" %>
