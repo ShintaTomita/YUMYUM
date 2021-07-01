@@ -106,7 +106,7 @@ Rails.application.configure do
       secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
       s3_region: 'ap-northeast-1'
     },
-    bucket: 'recipeimg'
+    bucket: ENV['S3_BUCKET']
   }
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
