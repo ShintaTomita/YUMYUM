@@ -50,7 +50,7 @@ module Yumyum
       @recipe = Recipe.find(params[:id])
       if @recipe.update!(params_recipe)
         flash[:notice] = 'レシピを更新しました'
-        redirect_to "/yumyum/recipes/#{@recipe.id}"
+        redirect_to yumyum_recipe_path(@recipe.id)
       else
         flash[:alert] = 'レシピ内容を記載してください'
         render :edit

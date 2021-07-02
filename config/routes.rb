@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
 
-
-  namespace :yumyum do
-    get 'cards/new'
-  end
-  get 'cards/new'
-  devise_for :chefs, :controllers => {
+  devise_for :chefs,       :controllers => {
     :sessions =>           "chefs/sessions"
   }
   devise_scope :chefs do
@@ -24,21 +19,21 @@ Rails.application.routes.draw do
   namespace :yumyum do
     root "top#index"
 
-    resources :top,        only: [:index]
-    resources :users,      except: [:index]
-    get "users/card/:id",      :to => "users#card"
-    get "users/purchase_recipes/:id",   :to => "users#purchase_recipes"
-    get "users/profile/:id",             :to => "users#profile"
+    resources :top,                   only: [:index]
+    resources :users,                 except: [:index]
+    get "users/card/:id",             :to => "users#card"
+    get "users/purchase_recipes/:id", :to => "users#purchase_recipes"
+    get "users/profile/:id",          :to => "users#profile"
     resources :chefs
-    get "chef_recipes/:id", :to => "chefs#chef_recipes"
-    get "search",           :to => "recipes#search"
+    get "chef_recipes/:id",           :to => "chefs#chef_recipes"
+    get "search",                     :to => "recipes#search"
     resources :recipes do
-      resources :orders,     only: [:create]
+      resources :orders,              only: [:create]
     end
-    get "recipes/detail/:id",  :to => "recipes#detail"
+    get "recipes/detail/:id",         :to => "recipes#detail"
     resources  :products
-    resources  :cards,     only: [:new, :create]
-    resources  :genres,    only: [:show]
+    resources  :cards,                only: [:new, :create]
+    resources  :genres,               only: [:show]
     resources  :posts
   end
 
