@@ -7,7 +7,7 @@ module.exports = environment.toWebpackConfig()
 module.exports = {
 
   performance: {
-    maxEntrypointSize: [350,000],
-    maxAssetSize: [350,000]
+    maxEntrypointSize: 350000,
+    maxAssetSize: 350000
   }
 }
