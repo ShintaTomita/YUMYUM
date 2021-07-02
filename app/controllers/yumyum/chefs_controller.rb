@@ -55,7 +55,7 @@ module Yumyum
 
     def chef_recipes
       @chef = Chef.find(params[:id])
-      @recipes = @chef.recipes
+      @recipes = @chef.recipes.includes([:genre])
     end
 
     def ensure_correct_chef

@@ -72,12 +72,12 @@ module Yumyum
 
     def purchase_recipes
       @user = User.find(params[:id])
-      @orders = Order.where(user_id: @user.id).page(params[:page]).per(12)
+      @orders = Order.includes([:recipe]).where(user_id: @user.id).page(params[:page]).per(12)
     end
 
     def profile
       @user = User.find(params[:id])
-      @orders = Order.where(user_id: @user.id).limit(4)
+      @orders = Order.includes([:recipe]).where(user_id: @user.id).limit(4)
     end
 
     private
