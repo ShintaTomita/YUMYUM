@@ -13,3 +13,6 @@
 ・circle ciを使った自動デプロイ
 ・bulletを使用したN＋１問題の回避
 ・UI、UXに配慮したデザインの修正
+
+
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embeddedchart/4a20e4e6-bf94-4ec7-9d05-59a329fa84c6" id="rW~Qd7hXltwn"></iframe></div>
