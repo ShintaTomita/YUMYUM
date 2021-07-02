@@ -21,7 +21,7 @@ module Yumyum
 
     def create
       @chef = Chef.new(params_chef)
-      if @chef.valid? && @chef.save!
+      if @chef.valid?(:step1) && @chef.save!
         sign_in @chef
         flash[:notice] = "ようこそ#{@chef.name}さん　まずはプロフィールを完成させてください"
         redirect_to "/yumyum/chefs/#{@chef.id}/edit"
@@ -37,7 +37,7 @@ module Yumyum
 
     def update
       @chef = Chef.find(params[:id])
-      if @chef.update!(chef_profile)
+      if @chef.valid?(:step2) && @chef.update!(chef_profile)
         flash[:notice] = 'プロフィールを更新しました'
         redirect_to yumyum_chef_path
       else

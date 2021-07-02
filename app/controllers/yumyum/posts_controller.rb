@@ -1,5 +1,5 @@
 class Yumyum::PostsController < ApplicationController
-
+  before_action :authenticate_user!, only: [:new, :create]
   def new
     @post = Post.new
     @recipe = Recipe.find_by(id: params[:recipe])
