@@ -14,5 +14,5 @@
 ・bulletを使用したN＋１問題の回避
 ・UI、UXに配慮したデザインの修正
 
-
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embeddedchart/4a20e4e6-bf94-4ec7-9d05-59a329fa84c6" id="rW~Qd7hXltwn"></iframe></div>
+YUMYUM ER図
+![YumYum_models_ER - DBMS ER 図 ](https://user-images.githubusercontent.com/78121152/124527948-eb7cd780-de41-11eb-8623-ac179d1dbd53.png)
