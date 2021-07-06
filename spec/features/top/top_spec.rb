@@ -27,7 +27,7 @@ RSpec.feature 'トップページの有効性について', type: :feature do
 
     scenario 'ログアウトは有効か' do
       click_on 'ログアウト'
-      expect(current_path).to eq new_user_session_path
+      expect(current_path).to eq destroy_user_session_path
       expect(page).to have_no_link 'ログアウト'
     end
   end

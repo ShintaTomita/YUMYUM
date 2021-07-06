@@ -2,12 +2,12 @@
 
 require 'rails_helper'
 
-RSpec.feature 'シェフ新規登録の有効性', type: :feature do
-  background do
+RSpec.describe 'シェフ新規登録の有効性', type: :system do
+  before do
     visit new_yumyum_chef_path
   end
 
-  scenario '新規登録ができるか？' do
+  it '新規登録ができるか？' do
     fill_in 'chef_name', with: 'testchef'
     fill_in 'chef_email', with: 'testchef@example.com'
     fill_in 'chef_password', with: 'testchef'
@@ -17,7 +17,7 @@ RSpec.feature 'シェフ新規登録の有効性', type: :feature do
     sign_in Chef
   end
 
-  scenario 'パスワードが一致しない場合' do
+  it 'パスワードが一致しない場合' do
     fill_in 'chef_name', with: 'testchef'
     fill_in 'chef_email', with: 'testchef@example.com'
     fill_in 'chef_password', with: 'testchef'
