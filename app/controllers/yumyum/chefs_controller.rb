@@ -37,17 +37,18 @@ module Yumyum
 
     def update
       @chef = Chef.find(params[:id])
-      if @chef.valid?(:step2) && @chef.update!(chef_profile)
-        flash[:notice] = 'プロフィールを更新しました'
-        redirect_to yumyum_chef_path
+      if @chef.update!(chef_profile)
+        flash[:notice] = "プロフィールを更新しました"
+        redirect_to yumyum_chef_path(@chef.id)
       else
+        flash[:alert] = "プロフィールを入力してください"
         render :edit
       end
     end
 
     def destroy
       @chef = Chef.find(params[:id])
-      if @chef.destroy
+      if @chef.destroy!
         flash[:notice] = 'アカウントを削除しました'
         redirect_to yumyum_root_path
       end

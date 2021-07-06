@@ -18,13 +18,14 @@ class Recipe < ApplicationRecord
   validates      :first_image,    presence: true
   validates      :second_image,   presence: true
 
-  belongs_to     :chef,   dependent: :destroy
+  belongs_to     :chef
   belongs_to     :genre
   has_one        :order,  dependent: :destroy
   has_many       :posts,  dependent: :destroy
 
   def self.search(search)
     return Recipe.all unless search
+
     Recipe.where(['name LIKE? OR food_stuff LIKE?', "%#{search}%", "%#{search}%"])
   end
 end

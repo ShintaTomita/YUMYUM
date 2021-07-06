@@ -30,6 +30,7 @@ gem 'dotenv-rails'
 gem 'payjp' 
 gem 'fog-aws'
 
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
@@ -38,8 +39,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails'
   gem 'rspec-rails'
-  gem 'capybara'
-  gem 'factory_bot_rails' 
   gem 'rubocop'
   gem 'rubocop-rails'
   gem 'rspec_junit_formatter'
@@ -56,6 +55,15 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'spring-commands-rspec'
+end
+
+group :test do
+ gem 'capybara'
+ gem 'selenium-webdriver'
+ gem 'factory_bot_rails' 
+ gem 'webdrivers'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

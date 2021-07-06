@@ -1,16 +1,6 @@
-require:
-  - rubocop-rails
-  
-Rails:
-  Enabled: true
-
-    # 文字数上限
-LineLength:
-  Max: 130
-
 AllCops:
-  TargetRubyVersion: 2.6.3
-  TargetRailsVersion: 6.1.3.2
+  # 除外するディレクトリ（自動生成されたファイル）
+  # デフォルト設定にある"vendor/**/*"が無効化されないように記述
   Exclude:
     - 'db/**/*'
     - 'config/**/*'
@@ -20,3 +10,18 @@ AllCops:
     - '**/Gemfile'
     - 'vendor/**/*'
     - '.git/**/*'
+  # Rails向けのRails copsを実行。"rubocop -R"と同じ
+  Rails:
+    Enabled: true
+
+# "Missing top-level class documentation comment."を無効
+  Style/Documentation:
+    Enabled: false
+
+# "Prefer single-quoted strings when you don't need string interpolation or special symbols."を無効
+  Style/StringLiterals:
+    Enabled: false
+
+# "Line is too long"を無効
+  Metrics/LineLength:
+    Enabled: false
