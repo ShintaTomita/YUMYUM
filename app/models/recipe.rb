@@ -20,8 +20,8 @@ class Recipe < ApplicationRecord
 
   belongs_to     :chef
   belongs_to     :genre
-  has_one        :order,  dependent: :destroy
-  has_many       :posts,  dependent: :destroy
+  has_one        :order
+  has_many       :posts
 
   def self.search(search)
     return Recipe.all unless search
