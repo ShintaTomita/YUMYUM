@@ -8,7 +8,6 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'jquery'
-import './recipes/change_price.js'
 import './card/card.js'
 import './card/purchase.js'
 import './users/user_destroy.js'
