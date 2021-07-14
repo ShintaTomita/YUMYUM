@@ -44,6 +44,7 @@ group :development, :test do
   gem 'rspec_junit_formatter'
   gem 'rails-erd'
   gem 'spring-commands-rspec'
+  gem 'capybara'
 end
 
 group :development do
@@ -60,7 +61,6 @@ group :development do
 end
 
 group :test do
- gem 'capybara'
  gem 'selenium-webdriver'
  gem 'factory_bot_rails' 
  gem 'webdrivers'

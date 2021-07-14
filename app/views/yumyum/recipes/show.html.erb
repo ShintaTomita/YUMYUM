@@ -14,13 +14,15 @@
         <p class="advise">アドバイス</p>
         <%= @recipe.advise %>
       </div>
-      <% if chef_signed_in? %>
-        <% if @recipe.chef_id == current_chef.id %>
-          <%= link_to "レシピを編集する", edit_yumyum_recipe_path(@recipe.id) %>
+      <div class="contents show-content">
+        <% if chef_signed_in? %>
+          <% if @recipe.chef_id == current_chef.id %>
+            <p><%= link_to "レシピを編集する", edit_yumyum_recipe_path(@recipe.id), class:"recipe-links" %></p>
+          <% end %>
+        <% else %>
+          <p><%= link_to "このレシピについてコメントを書く", new_yumyum_post_path(recipe: @recipe), class:"recipe-links" %></p>
         <% end %>
-      <% else %>
-        <%= link_to "このレシピについてコメントを書く", new_yumyum_post_path(recipe: @recipe) %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

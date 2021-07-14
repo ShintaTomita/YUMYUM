@@ -4,7 +4,7 @@
     <%= link_to "/yumyum/recipes/#{order.recipe_id}" do %>
       <div class="chef-logo">
         <% if order.recipe.main_image.present? %>
-          <%= image_tag order.recipe.main_image.thumb.url %>
+          <%= image_tag order.recipe.main_image.thumb.url, class: "chef-logo" %>
         <% else %>
           <%= image_tag "usericon.png" %>
         <% end %>
@@ -13,6 +13,18 @@
         <div class="details">
           <p class="hoge">料理名：</p>
           <p><%= order.recipe.name %></p>
+        </div>
+        <div class="details">
+          <p class="hoge">シェフ：</p>
+          <p><%= order.recipe.chef.name %></p>
+        </div>
+        <div class="details">
+          <p class="hoge">ジャンル：</p>
+          <p><%= order.recipe.genre.genre_name %></p>
+        </div>
+        <div class="details">
+          <p class="hoge">価格：</p>
+          <p><%= order.recipe.genre.price %></p>
         </div>
       </div>
     <% end %>

@@ -39,6 +39,7 @@ module Yumyum
         flash[:notice] = 'レシピを登録しました'
         redirect_to "/yumyum/recipes/detail/#{@recipe.id}"
       else
+        flash[:alert] = "レシピ内容を入力してください"
         render new_yumyum_recipe_path
       end
     end

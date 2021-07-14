@@ -1,5 +1,5 @@
-<div class="account">
-  <div class="form">
+<div class="account profile-page">
+  <div class="form profile-form">
     <div class="form-title">
       <h2>プロフィール</h2>
     </div>
@@ -14,15 +14,15 @@
       </div>
       <div class="contents">
         <p>お名前</p>
-        <%= @user.name%>
+        <p class ="contents-text"><%= @user.name%></p>
       </div>
       <div class="contents">
         <p>性別</p>
-        <%= @user.sex %>
+        <p class ="contents-text"><%= @user.sex %></p>
       </div>
       <div class="contents">
         <p>年齢</p>
-        <%= @user.age %>
+        <p class ="contents-text"><%= @user.age %></p>
       </div>
     </div>
     <% end %>
