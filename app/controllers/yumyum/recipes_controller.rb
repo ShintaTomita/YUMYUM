@@ -21,7 +21,7 @@ module Yumyum
         @order = Order.where(user_id: current_user.id, recipe_id: @recipe.id).first if user_signed_in?
       else
         flash[:alert] = '新規登録、ログインをしてください'
-        render new_yumyum_user_path
+        redirect_to new_yumyum_user_path
       end
     end
 
