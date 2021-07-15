@@ -119,5 +119,6 @@ module Yumyum
       params.require(:recipe).permit(:name, :food_stuff, :main_image, :first_process, :second_process, :third_process, :fourth_process,
                                      :first_image, :second_image, :third_image, :fourth_image, :advise, :chef_id, :genre_id)
     end
+
   end
 end

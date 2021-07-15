@@ -29,6 +29,9 @@ gem 'devise'
 gem 'dotenv-rails'
 gem 'payjp' 
 gem 'fog-aws'
+gem "aws-sdk", "~> 2.3"
+gem "kaminari"
+gem 'seed_dump'
 
 
 # Reduces boot times through caching; required in config/boot.rb
@@ -70,6 +73,3 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "aws-sdk", "~> 2.3"
-gem "kaminari"
-gem 'seed_dump'
